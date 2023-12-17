@@ -5,8 +5,7 @@ import dynamic from 'next/dynamic';
 
 export default async function Leaflet() {
   // useMemo(()=>console.log("test"),[])
-  const Map  = dynamic(
-    () => import('./Map'),
+  const Map  = dynamic(() => import('./Map'),
     { 
       loading: () => <p>A map is loading</p>,
       ssr: false
@@ -14,7 +13,7 @@ export default async function Leaflet() {
   )
 
     return ( 
-        <div style={{ aspectRatio: 600 / 600 }}>
+        <div>
             <Map />
         </div>
      );

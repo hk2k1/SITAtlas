@@ -1,71 +1,84 @@
 'use client'
-import { useEffect } from 'react';
-import * as ReactLeaflet from 'react-leaflet';
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-// import Leaflet from 'leaflet';
-import Leaflet from 'leaflet'
-import styles from './map.module.scss';
-import 'leaflet/dist/leaflet.css'
-import "leaflet-defaulticon-compatibility"
-import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css"
 
-// function LocationMarker() {
-//     const [position, setPosition] = useState(null)
-//     const map = useMapEvents({
-//       click() {
-//         map.locate()
-//       },
-//       locationfound(e) {
-//         setPosition(e.latlng)
-//         map.flyTo(e.latlng, map.getZoom())
-//       },
-//     })
-  
-//     return position === null ? null : (
-//       <Marker position={position}>
-//         <Popup>You are here</Popup>
-//       </Marker>
-//     )
-//   }
-    // useEffect(() => {
-    //     (async function init() {
-    //     // delete Leaflet.Icon.Default.prototype._getIconUrl;
-    //         delete Leaflet.Icon.Default.prototype;
-    //         Leaflet.Icon.Default.mergeOptions({
-    //             iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-    //             iconUrl: require('leaflet/dist/images/marker-icon.png'),
-    //             shadowUrl: require('leaflet/dist/images/marker-shadow.png')
-    //         });
-    //     // Leaflet.Icon.Default.mergeOptions({
-    //     //     iconRetinaUrl: 'leaflet/images/marker-icon-2x.png',
-    //     //     iconUrl: 'leaflet/images/marker-icon.png',
-    //     //     shadowUrl: 'leaflet/images/marker-shadow.png',
-    //     // });
-    //     })();
-    // }, []);
+import L, { LatLng } from 'leaflet'
+import 'leaflet/dist/leaflet.css'
+import MarkerIcon from '../../../../../node_modules/leaflet/dist/images/marker-icon.png'
+import MarkerShadow from '../../../../../node_modules/leaflet/dist/images/marker-shadow.png'
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvent } from 'react-leaflet'
+import { useState, useEffect } from 'react'
+
+function MyComponent(position) {
+    const map = useMap();
+    useEffect(() => {
+        map.flyTo(position)
+    }, [position])
+
+    return null
+  }
 
 const Map = () => {
-    // let mapClassName = styles.map
-    // const ResizeMap = () => {
-    //     const map = useMap();
-    //     // map._onResize();
-    //     return null;
-    //   };
+    var latlng = new LatLng(1.4126690459532725, 103.91086249919728)
+    const [coord, setCoord] = useState(latlng)
 
-    return ( 
-        <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false} >
-            {/* <ResizeMap /> */}
-            <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    const SearchLocation = () => {
+        return(
+            <div className='search-location'>
+                <input type='text' placeholder='Search Location' />
+            </div>
+        )
+    }
+
+    const GetMyLocation = () => {
+        const getMyLocation = () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    setCoord(new LatLng(position.coords.latitude, position.coords.longitude))
+                    console.log(coord)
+                    const map = useMap();
+                    useEffect(() => {
+                        map.flyTo(coord)
+                    }, [coord])
+                    
+                })
+            } else {
+                console.log('Geolocation is not supported by this browser.')
+            }
+        }
+        return(
+            <div className='get-my-location'>
+                <button onClick={getMyLocation}>Get My Location</button>
+            </div>
+        )
+    }
+    
+    return(
+        <div>
+            <SearchLocation />
+            <GetMyLocation />
+            <MapContainer style={{height: '100%', width: '100%', position: 'absolute'}} center={coord} zoom={13} scrollWheelZoom={true}>
+                <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' 
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[51.505, -0.09]}>
-                <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
-            </Marker>
-        </MapContainer>
-     );
+                />
+                <Marker 
+                    icon={
+                        new L.Icon({
+                            iconUrl: MarkerIcon.src,
+                            iconRetinaUrl: MarkerIcon.src,
+                            iconSize: [25, 41],
+                            iconAnchor: [12.5, 41],
+                            popupAnchor: [0, -41],
+                            shadowUrl: MarkerShadow.src,
+                            shadowSize: [41, 41],
+                        })
+                    }
+                    position={coord}>
+                    <Popup>
+                        A pretty CSS3. <br /> Easily Customizable.
+                    </Popup>
+                </Marker>
+            </MapContainer>
+        </div>
+    )
 }
- 
+
 export default Map;
