@@ -23,6 +23,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossOrigin=""
         /> */}
+        {/* Mapbox */}
+        <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
       </head>
       <body>
         <Providers>

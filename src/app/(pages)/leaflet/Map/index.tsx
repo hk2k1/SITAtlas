@@ -56,8 +56,10 @@ const Map = () => {
             <SearchLocation />
             <GetMyLocation />
             <MapContainer style={{height: '100%', width: '100%', position: 'absolute'}} center={coord} zoom={13} scrollWheelZoom={true}>
-                <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' 
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    maxNativeZoom={19}
+                    maxZoom={25}
                 />
                 <Marker 
                     icon={
