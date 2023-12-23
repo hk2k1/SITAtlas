@@ -13,14 +13,18 @@ const Mapbox = () => {
 
   return (
     <Map
-      style="mapbox://styles/mapbox/streets-v11"
+      style="mapbox://styles/mapbox/standard"
       containerStyle={{
         height: '100vh',
         width: '100vw',
       }}
       zoom={[17]}
       center={[103.912890,1.413576]}
+      onStyleLoad={(map)=> {
+        map.setConfigProperty('basemap', 'lightPreset', 'dusk');
+      }}
     >
+      
       <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
         <Feature coordinates={[103.912890,1.413576]} />
       </Layer>
