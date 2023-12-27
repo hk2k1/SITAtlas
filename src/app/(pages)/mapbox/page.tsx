@@ -21,7 +21,7 @@ const Mapbox = () => {
       zoom={[17]}
       center={[103.912890,1.413576]}
       onStyleLoad={(map)=> {
-        map.setConfigProperty('basemap', 'lightPreset', 'dusk');
+        map.setConfigProperty('basemap', 'lightPreset', 'night');
       }}
     >
       
