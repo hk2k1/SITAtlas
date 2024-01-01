@@ -4,15 +4,15 @@ import dynamic from 'next/dynamic';
 // console.log(useMemo);
 
 export default async function Leaflet() {
-  // useMemo(()=>console.log("test"),[])
-  const Map = dynamic(() => import('./Map'), {
-    loading: () => <p>A map is loading</p>,
-    ssr: false,
-  });
+    // useMemo(()=>console.log("test"),[])
+    const Map = dynamic(() => import('./Map'), {
+        loading: () => <p>A map is loading</p>,
+        ssr: false,
+    });
 
-  return (
-    <div>
-      <Map />
-    </div>
-  );
+    return (
+        <div>
+            <Map />
+        </div>
+    );
 }
