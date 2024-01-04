@@ -4,9 +4,12 @@ import { useEffect, useState } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvent } from 'react-leaflet';
 import L, { LatLng } from 'leaflet';
 // import MarkerIcon from '../../../../../node_modules/leaflet/dist/images/marker-icon.png';
-import MarkerIcon from 'leafletdistimagesmarker-icon.png';
-import MarkerShadow from 'leafletdistimagesmarker-shadow.png';
+import MarkerIcon from 'leaflet/dist/images/marker-icon.png';
+import MarkerShadow from 'leaflet/dist/images/marker-shadow.png';
 
+// import MarkerIcon from 'leafletdistimagesmarker-icon.png';
+// import MarkerShadow from 'leafletdistimagesmarker-shadow.png';
+// import { MarkerIcon, MarkerShadow } from 'leaflet';
 // import MarkerShadow from '../../../../../node_modules/leaflet/dist/images/marker-shadow.png';
 import 'leaflet/dist/leaflet.css';
 

@@ -19,7 +19,7 @@
     "lint": "eslint src",
     "lint:fix": "eslint --fix --ext .ts,.tsx src",
     "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload",
-    "clean": "rimraf .dist && rimraf .next",
+    "clean": "rimraf dist && rimraf .next && rimraf build",
     "clean:cache": "rimraf node_modules/.cache"
   },
   "dependencies": {
