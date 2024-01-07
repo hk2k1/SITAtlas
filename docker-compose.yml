@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   payload:
     image: node:20-alpine
@@ -16,7 +15,6 @@ services:
       - .env
     networks:
     - payload_network
-
   mongo:
     image: mongo:latest
     ports:
@@ -29,8 +27,6 @@ services:
       driver: local
     networks:
       - payload_network
-      
-
 volumes:
   data:
   node_modules:
