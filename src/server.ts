@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-// import helmet from 'helmet';
 import next from 'next';
 import nextBuild from 'next/dist/build';
 import open from 'open';
@@ -26,60 +25,6 @@ const start = async (): Promise<void> => {
             payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
         },
     });
-
-    // Custom Express Routes
-    // CSP policy via helmet
-    // app.use(function (req, res, next) {
-    //   let middleware
-    //   // If we've mounted Payload CMS on /admin - change the CSP to suit.
-    //   if (req.path.startsWith('/admin')) {
-    //     middleware = helmet({
-    //       contentSecurityPolicy: {
-    //         directives: {
-    //           'script-src': [
-    //               "'self'"
-    //             ],
-    //             'img-src': ["'self'", 'data:', 'https://raw.githubusercontent.com'],
-    //             'media-src': ["'self'", 'data:', 'https://raw.githubusercontent.com'],
-    //             'default-src': ["'self'"]
-    //         },
-    //       },
-    //     })
-    //   } else {
-    //     middleware = helmet({
-    //       crossOriginEmbedderPolicy: false,
-    //       contentSecurityPolicy: {
-    //         // NOTE: Remove reportOnly when you're ready to enforce this CSP
-    //         // reportOnly: true,
-    //         directives: {
-    //           'connect-src': [
-    //             process.env.NEXT_BUILD === 'development' ? 'ws:' : null,
-    //             "'self'",
-    //           ].filter(Boolean),
-    //           'script-src': [
-    //             "'strict-dynamic'",
-    //             "'self'", // Ignored by CSP 3 compliant browsers when strict-dynamic - here for backwards compat.
-    //             "'unsafe-inline'", // Ignored by CSP 3 compliant browsers when strict-dynamic - here for backwards compat.
-    //             'https:', // Ignored by CSP 3 compliant browsers when strict-dynamic - here for backwards compat.
-    //             'http:', // Ignored by CSP 3 compliant browsers when strict-dynamic - here for backwards compat.
-    //             (_, res) => `'nonce-${res.locals.cspNonce}'`
-    //           ],
-    //           'script-src-attr': [
-    //             (_, res) => `'nonce-${res.locals.cspNonce}'`
-    //           ],
-    //           'font-src': ["'self'"],
-    //           'frame-src': ["'self'"],
-    //           'img-src': ["'self'", 'data:', 'https://raw.githubusercontent.com'],
-    //           'media-src': ["'self'", 'data:', 'https://raw.githubusercontent.com'],
-    //           'default-src': ["'self'"],
-    //           'upgrade-insecure-requests': null
-    //         }
-    //       }
-    //     })
-    //   }
-
-    //   middleware(req, res, next)
-    // })
 
     // Seed data from payload/seed
     if (process.env.PAYLOAD_SEED === 'true') {

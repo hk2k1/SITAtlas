@@ -2,6 +2,7 @@
 .gitignore
 node_modules
 Dockerfile
+Dockerfile.dev
 infra
 .next
 next-env.d.ts

@@ -2,14 +2,18 @@ version: '3.8'
 
 services:
   payload:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile.dev
     image: node:20-alpine
     ports:
       - '3000:3000'
     volumes:
-      - .:/home/node/app
+      - ./:/home/node/app
       - node_modules:/home/node/app/node_modules
+      - ./.next:/app/.next
+    restart: unless-stopped
     working_dir: /home/node/app/
-    command: sh -c "yarn install && yarn dev"
     depends_on:
       - mongo
     env_file:
@@ -34,5 +38,6 @@ services:
 volumes:
   data:
   node_modules:
+  next:
 networks:
   payload_network:

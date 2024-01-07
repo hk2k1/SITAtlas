@@ -17,7 +17,7 @@ export const staticHome: Page = {
             {
                 children: [
                     {
-                        text: 'Payload Website Template',
+                        text: 'Payload Mapbox Developments',
                     },
                 ],
                 type: 'h1',
