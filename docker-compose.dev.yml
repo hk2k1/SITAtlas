@@ -12,7 +12,6 @@ services:
       - ./:/home/node/app
       - node_modules:/home/node/app/node_modules
       - ./.next:/app/.next
-    restart: unless-stopped
     working_dir: /home/node/app/
     depends_on:
       - mongo
