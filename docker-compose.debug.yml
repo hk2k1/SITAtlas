@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  payload:
+    command: sh -c "yarn install && yarn debug"
+    ports:
+      - '3000:3000'
+      - '3333:3333'

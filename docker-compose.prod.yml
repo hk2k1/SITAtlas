@@ -14,7 +14,7 @@ services:
     depends_on:
       - mongo
     env_file:
-      - .env
+      - .env.docker
     networks:
       - payload_network
     restart: unless-stopped

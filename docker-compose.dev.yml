@@ -2,6 +2,7 @@ version: '3.8'
 services:
   payload:
     image: node:20-alpine
+    container_name: payload-dev
     build:
       context: .
       dockerfile: infra/docker/Dockerfile.dev
@@ -15,11 +16,12 @@ services:
     depends_on:
       - mongo
     env_file:
-      - .env
+      - .env.docker
     networks:
       - payload_network
   mongo:
-    image: mongo:latest
+    image: mongo:4.4.27
+    container_name: mongo-dev
     ports:
       - '27017:27017'
     command:
