@@ -2,6 +2,7 @@ version: '3.8'
 services:
   payload:
     image: node:20-alpine
+    container_name: payload
     ports:
       - '3000:3000'
     volumes:
@@ -12,11 +13,12 @@ services:
     depends_on:
       - mongo
     env_file:
-      - .env
+      - .env.docker
     networks:
     - payload_network
   mongo:
     image: mongo:latest
+    container_name: mongo
     ports:
       - '27017:27017'
     command:
@@ -27,6 +29,20 @@ services:
       driver: local
     networks:
       - payload_network
+  nginx:
+    image: nginx:latest
+    build: 
+      context: .
+      dockerfile: infra/docker/Dockerfile.nginx
+    container_name: nginx
+    tty: true
+    ports: 
+      - '8000:80'
+    networks: 
+      - payload_network
+    depends_on:
+       - payload
+       - mongo
 volumes:
   data:
   node_modules:

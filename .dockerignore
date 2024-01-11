@@ -2,7 +2,7 @@
 .gitignore
 node_modules
 Dockerfile
-infra
+infra/docker
 .next
 next-env.d.ts
 package-lock.json
