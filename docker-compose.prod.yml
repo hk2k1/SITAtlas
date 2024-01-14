@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   payload:
-    image: node:20-alpine
     container_name: payload-prod
+    image: harshakeerthan/sitatlas
     build:
       context: .
       dockerfile: infra/docker/Dockerfile.prod
@@ -19,7 +19,7 @@ services:
       - payload_network
     restart: unless-stopped
   mongo:
-    image: mongo:4.4.27
+    image: harshakeerthan/sitatlas-mongo
     container_name: mongo-prod
     ports:
       - '27017:27017'
