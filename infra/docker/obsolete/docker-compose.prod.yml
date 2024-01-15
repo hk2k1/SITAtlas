@@ -1,0 +1,58 @@
+version: '3.8'
+services:
+  payload:
+    container_name: payload-prod
+    image: harshakeerthan/sitatlas
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.prod
+      platforms: 
+        - linux/arm64
+        - linux/amd64
+    ports:
+      - '3000:3000'
+    volumes:
+      - node_modules:/home/node/app/node_modules
+    working_dir: /home/node/app/
+    depends_on:
+      - mongo
+    env_file:
+      - .env.docker
+    networks:
+      - payload_network
+    restart: unless-stopped
+  mongo:
+    image: mongo:latest
+    container_name: mongo-prod
+    ports:
+      - '27017:27017'
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      - prod-data:/data/db
+    logging:
+      driver: local
+    networks:
+      - payload_network
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "echo",
+          "'db.runCommand(\"ping\").ok'",
+          "|",
+          "mongo",
+          "--eval",
+          "db.stats()"
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+volumes:
+  prod-data:
+  node_modules:
+  next:
+networks:
+  payload_network:
