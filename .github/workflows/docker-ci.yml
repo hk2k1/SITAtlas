@@ -43,7 +43,21 @@ jobs:
                     cache-from: type=gha
                     cache-to: type=gha,mode=max
                     platforms: linux/amd64
-    
+                    context: .
+                    build-args: |
+                        "DATABASE_URI=${{ secrets.DATABASE_URI }}"
+                        "DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}"
+                        "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}"
+                        "NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }}"
+                        "PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }}"
+                        "NEXT_PRIVATE_DRAFT_SECRET=${{ env.NEXT_PRIVATE_DRAFT_SECRET }}"
+                        "NEXT_PRIVATE_REVALIDATION_KEY=${{ env.NEXT_PRIVATE_REVALIDATION_KEY }}"
+                        "NEXT_PUBLIC_SERVER_URL=${{ env.NEXT_PUBLIC_SERVER_URL }}"
+                        "PAYLOAD_PUBLIC_DRAFT_SECRET=${{ env.PAYLOAD_PUBLIC_DRAFT_SECRET }}"
+                        "PAYLOAD_PUBLIC_SERVER_URL=${{ env.PAYLOAD_PUBLIC_SERVER_URL }}"
+                        "PORT=${{ env.PORT }}"
+                        "REVALIDATION_KEY=${{ env.REVALIDATION_KEY }}"
+
     test-unit:
         name: Unit Tests in Docker
         needs: [build-image]
