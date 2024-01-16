@@ -94,7 +94,7 @@ jobs:
 
         permissions:
             contents: read
-            packages: read
+            packages: write
         
         steps:
             - 
@@ -104,6 +104,13 @@ jobs:
                 name: Downcase GITHUB_REPOSITORY
                 run: |
                     echo "REPO=${GITHUB_REPOSITORY@L}" >> "$GITHUB_ENV"
+            - 
+                name: Login to GitHub Container Registry
+                uses: docker/login-action@v3
+                with:
+                    registry: ghcr.io
+                    username: ${{ github.actor }}
+                    password: ${{ secrets.PAT }}
             -
                 name: Unit Testing in Docker
                 run: |
