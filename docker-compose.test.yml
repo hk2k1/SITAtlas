@@ -13,8 +13,8 @@ services:
       PAYLOAD_PUBLIC_DRAFT_SECRET: ${ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }
       PAYLOAD_PUBLIC_SERVER_URL: '${ secrets.PAYLOAD_PUBLIC_SERVER_URL }'
       PORT: ${ secrets.PORT }
-      REVALIDATION_KEY: ${ secrets.REVALIDATION_KEY }
-      NEXT_PUBLIC_SERVER_URL: '${ secrets.NEXT_PUBLIC_SERVER_URL }'
+      REVALIDATION_KEY: $${ secrets.REVALIDATION_KEY }
+      NEXT_PUBLIC_SERVER_URL: '$${ secrets.NEXT_PUBLIC_SERVER_URL }'
 
   mongo:
     image: mongo:latest
