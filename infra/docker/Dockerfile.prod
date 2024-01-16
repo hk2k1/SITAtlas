@@ -30,8 +30,7 @@ RUN --mount=type=secret,id=PAYLOAD_SECRET \
    export PAYLOAD_PUBLIC_DRAFT_SECRET=$(cat /run/secrets/PAYLOAD_PUBLIC_DRAFT_SECRET) && \
    export PAYLOAD_PUBLIC_SERVER_URL=$(cat /run/secrets/PAYLOAD_PUBLIC_SERVER_URL) && \
    export PORT=$(cat /run/secrets/PORT) && \
-   export REVALIDATION_KEY=$(cat /run/secrets/REVALIDATION_KEY) && \
-   export PAYLOAD_SECRET=$(cat /run/secrets/PAYLOAD_SECRET)
+   export REVALIDATION_KEY=$(cat /run/secrets/REVALIDATION_KEY)
 RUN yarn build
 FROM base as runtime
 
