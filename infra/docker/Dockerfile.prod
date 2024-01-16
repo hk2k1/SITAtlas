@@ -7,6 +7,10 @@ COPY package*.json ./
 
 COPY . .
 RUN yarn install
+RUN --mount=type=secret,id=PAYLOAD_SECRET \
+  --mount=type=secret,id=DATABASE_URI \
+   export PAYLOAD_SECRET=$(cat /run/secrets/PAYLOAD_SECRET) && \
+   export DATABASE_URI=$(cat /run/secrets/DATABASE_URI)
 RUN yarn build
 FROM base as runtime
 
