@@ -107,6 +107,7 @@ jobs:
             -
                 name: Unit Testing in Docker
                 run: |
+                    docker pull ghcr.io/${{ env.REPO }}:${{ github.run_id }}
                     docker run --rm ghcr.io/${{ env.REPO }}:${{ github.run_id }} echo "ls -a"
 
     test-integration:
