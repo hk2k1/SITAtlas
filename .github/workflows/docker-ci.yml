@@ -18,9 +18,9 @@ jobs:
             security-events: write
         
         steps:
-            # - 
-            #     name: Checkout git repo
-            #     uses: actions/checkout@v4
+            - 
+                name: Checkout git repo
+                uses: actions/checkout@v4
             # -
             #     name: create env file
             #     run: |
@@ -62,7 +62,7 @@ jobs:
                 uses: docker/build-push-action@v5
                 with:
                     push: true
-                    file: "${{ github.server_url }}/${{ github.repository }}.git#${{ github.ref }}:infra/docker/Dockerfile.prod"
+                    file: infra/docker/Dockerfile.prod
                     tags:  ghcr.io/harshakeerthan/sitatlas:${{ github.run_id}}
                     cache-from: type=gha
                     cache-to: type=gha,mode=max
