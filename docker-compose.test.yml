@@ -2,13 +2,7 @@ version: '3.8'
 services:
   payload:
     image: "${TESTING_IMAGE}"
-
-  mongo:
-    image: mongo:latest
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: "${TESTING_IMAGE}"
-      ME_CONFIG_MONGODB_ADMINPASSWORD: "${TESTING_IMAGE}"
-      ME_CONFIG_MONGODB_URL: 'mongodb+srv://${MONGODB_ADMINUSERNAME}:${MONGODB_ADMINPASSWORD}@sitatlas-cluster.3eew6oe.mongodb.net/payload_sandbox'
       DATABASE_URI: ${ secrets.DATABASE_URI }
       DOCKERHUB_TOKEN: ${ secrets.DOCKERHUB_TOKEN }
       DOCKERHUB_USERNAME: ${ secrets.DOCKERHUB_USERNAME }
@@ -21,6 +15,13 @@ services:
       PAYLOAD_PUBLIC_SERVER_URL: ${ secrets.PAYLOAD_PUBLIC_SERVER_URL }
       PORT: ${ secrets.PORT }
       REVALIDATION_KEY: ${ secrets.REVALIDATION_KEY }
+
+  mongo:
+    image: mongo:latest
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: "${TESTING_IMAGE}"
+      ME_CONFIG_MONGODB_ADMINPASSWORD: "${TESTING_IMAGE}"
+      ME_CONFIG_MONGODB_URL: 'mongodb+srv://${MONGODB_ADMINUSERNAME}:${MONGODB_ADMINPASSWORD}@sitatlas-cluster.3eew6oe.mongodb.net/payload_sandbox'
     volumes:
       - ./infra:/healthchecks
     healthcheck:
