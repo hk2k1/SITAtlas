@@ -3,7 +3,7 @@ services:
   payload:
     image: "${TESTING_IMAGE}"
     environment:
-      DATABASE_URI: $${ secrets.DATABASE_URI }
+      DATABASE_URI: '${ secrets.DATABASE_URI }'
       DOCKERHUB_TOKEN: $${ secrets.DOCKERHUB_TOKEN }
       DOCKERHUB_USERNAME: $${ secrets.DOCKERHUB_USERNAME }
       NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN: $${ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }
@@ -25,7 +25,7 @@ services:
     volumes:
       - ./infra:/healthchecks
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      test: echo 'db.runCommand("ping").ok' | mongo 'mongodb+srv://${MONGODB_ADMINUSERNAME}:${MONGODB_ADMINPASSWORD}@sitatlas-cluster.3eew6oe.mongodb.net/payload_sandbox' --quiet
       interval: 10s
   sut:
     image: "${TESTING_IMAGE}"
