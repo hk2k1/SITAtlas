@@ -9,7 +9,7 @@ on:
     pull_request:
         
 jobs:
-    build-image:
+    build-initial-image:
         name: Build Docker Image
         runs-on: ubuntu-latest
 
@@ -89,7 +89,7 @@ jobs:
 
     test-unit:
         name: Unit Tests in Docker
-        needs: [build-image]
+        needs: [build-initial-image]
         runs-on: ubuntu-latest
 
         permissions:
@@ -119,7 +119,7 @@ jobs:
 
     test-integration:
         name: Integration Tests in Docker
-        needs: [build-image]
+        needs: [build-initial-image]
         runs-on: ubuntu-latest
 
         permissions:
@@ -144,10 +144,11 @@ jobs:
 
     scan-image:
         name: Scan Images for CVEs
-        needs: [build-image]
+        needs: [build-initial-image]
         runs-on: ubuntu-latest
 
         permissions:
+            contents: read
             packages: read
         
         steps:

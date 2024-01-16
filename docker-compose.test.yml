@@ -10,7 +10,7 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: "${TESTING_IMAGE}"
       ME_CONFIG_MONGODB_URL: 'mongodb+srv://${MONGODB_ADMINUSERNAME}:${MONGODB_ADMINPASSWORD}@sitatlas-cluster.3eew6oe.mongodb.net/payload_sandbox'
     volumes:
-      -./infra:/healthchecks
+      - ./infra:/healthchecks
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
