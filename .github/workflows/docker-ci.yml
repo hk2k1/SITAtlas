@@ -12,10 +12,6 @@ jobs:
     build-image:
         name: Build Docker Image
         runs-on: ubuntu-latest
-
-        permissions:
-            contents: read
-            security-events: write
         
         steps:
             - 
@@ -38,6 +34,8 @@ jobs:
                     echo PORT=${{ vars.PORT }} >> .env
                     echo REVALIDATION_KEY=${{ vars.REVALIDATION_KEY }} >> .env
                     cat .env
+                    yarn install
+                    yarn build
             -
                 name: Set up QEMU
                 uses: docker/setup-qemu-action@v3
