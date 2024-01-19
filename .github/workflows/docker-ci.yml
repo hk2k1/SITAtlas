@@ -159,7 +159,7 @@ jobs:
                     export "PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }}"
                     export "PORT=${{ secrets.PORT }}"
                     export "REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }}"
-                    echo ${TESTING_IMAGE}
+                    
                     docker compose -f docker-compose.test.yml up --exit-code-from sut
 
     scan-image:
