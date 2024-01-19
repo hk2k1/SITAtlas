@@ -3,18 +3,19 @@ services:
   payload:
     image: "${TESTING_IMAGE}"
     environment:
-      DATABASE_URI: 'mongodb://host.docker.internal:27017/payload_sandbox'
-      DOCKERHUB_TOKEN: $${ secrets.DOCKERHUB_TOKEN }
-      DOCKERHUB_USERNAME: $${ secrets.DOCKERHUB_USERNAME }
-      NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN: $${ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }
-      PAYLOAD_SECRET: $${ secrets.PAYLOAD_SECRET }
-      NEXT_PRIVATE_DRAFT_SECRET: $${ secrets.NEXT_PRIVATE_DRAFT_SECRET }
-      NEXT_PRIVATE_REVALIDATION_KEY: $${ secrets.NEXT_PRIVATE_REVALIDATION_KEY }
-      PAYLOAD_PUBLIC_DRAFT_SECRET: $${ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }
-      PAYLOAD_PUBLIC_SERVER_URL: '$${ secrets.PAYLOAD_PUBLIC_SERVER_URL }'
-      PORT: $${ secrets.PORT }
-      REVALIDATION_KEY: $${ secrets.REVALIDATION_KEY }
-      NEXT_PUBLIC_SERVER_URL: '$${ secrets.NEXT_PUBLIC_SERVER_URL }'
+      - DATABASE_URI='mongodb://host.docker.internal:27017/payload_sandbox'
+      - DOCKERHUB_TOKEN=${ secrets.DOCKERHUB_TOKEN }
+      - DOCKERHUB_USERNAME=${ secrets.DOCKERHUB_USERNAME }
+      - NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }
+      - PAYLOAD_SECRET=${ secrets.PAYLOAD_SECRET }
+      - NEXT_PRIVATE_DRAFT_SECRET=${ secrets.NEXT_PRIVATE_DRAFT_SECRET }
+      - NEXT_PRIVATE_REVALIDATION_KEY=${ secrets.NEXT_PRIVATE_REVALIDATION_KEY }
+      - PAYLOAD_PUBLIC_DRAFT_SECRET=${ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }
+      - PAYLOAD_PUBLIC_SERVER_URL=$${ secrets.PAYLOAD_PUBLIC_SERVER_URL }'
+      - PORT=${ secrets.PORT }
+      - REVALIDATION_KEY=${ secrets.REVALIDATION_KEY }
+      - NEXT_PUBLIC_SERVER_URL=$${ secrets.NEXT_PUBLIC_SERVER_URL }'
+    command: echo $$DATABASE_URI
 
   mongo:
     image: mongo:latest
