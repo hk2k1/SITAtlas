@@ -15,7 +15,7 @@ services:
       - PORT=$${ secrets.PORT }
       # - REVALIDATION_KEY=${ secrets.REVALIDATION_KEY }
       - NEXT_PUBLIC_SERVER_URL=$${ secrets.NEXT_PUBLIC_SERVER_URL }'
-    command: echo $${ secrets.PAYLOAD_SECRET }
+    command: echo $PAYLOAD_SECRET
 
   mongo:
     image: mongo:latest
