@@ -144,23 +144,24 @@ jobs:
             -
                 name: Test Healthcheck in Docker Compose
                 run: |
-                    export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
-                    export MONGODB_ADMINUSERNAME="${{ secrets.MONGODB_ADMINUSERNAME }}"
-                    export MONGODB_ADMINPASSWORD="${{ secrets.MONGODB_ADMINPASSWORD }}"
-                    export "DATABASE_URI=${{ secrets.DATABASE_URI }}"
-                    export "DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}"
-                    export "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}"
-                    export "NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }}"
-                    export "PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }}"
-                    export "NEXT_PRIVATE_DRAFT_SECRET=${{ secrets.NEXT_PRIVATE_DRAFT_SECRET }}"
-                    export "NEXT_PRIVATE_REVALIDATION_KEY=${{ secrets.NEXT_PRIVATE_REVALIDATION_KEY }}"
-                    export "NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }}"
-                    export "PAYLOAD_PUBLIC_DRAFT_SECRET=${{ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }}"
-                    export "PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }}"
-                    export "PORT=${{ secrets.PORT }}"
-                    export "REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }}"
-                    
-                    docker compose -f docker-compose.test.yml up --exit-code-from sut
+                    touch .env
+                    echo TESTING_IMAGE=ghcr.io/${{ env.REPO }}:${{ github.run_id }} >> .env
+                    echo MONGODB_ADMINUSERNAME=${{ secrets.MONGODB_ADMINUSERNAME }} >> .env
+                    echo ONGODB_ADMINPASSWORD="${{ secrets.MONGODB_ADMINPASSWORD }} >> .env
+                    echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
+                    echo DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }} >> .env
+                    echo DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} >> .env
+                    echo NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }} >> .env
+                    echo PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }} >> .env
+                    echo NEXT_PRIVATE_DRAFT_SECRET=${{ secrets.NEXT_PRIVATE_DRAFT_SECRET }} >> .env
+                    echo NEXT_PRIVATE_REVALIDATION_KEY=${{ secrets.NEXT_PRIVATE_REVALIDATION_KEY }} >> .env
+                    echo NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }} >> .env
+                    echo PAYLOAD_PUBLIC_DRAFT_SECRET=${{ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }} >> .env
+                    echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
+                    echo PORT=${{ secrets.PORT }} >> .env
+                    echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
+
+                    docker compose --env-file .env -f docker-compose.test.yml up --exit-code-from sut
 
     scan-image:
         name: Scan Images for CVEs
