@@ -145,9 +145,9 @@ jobs:
                 name: Test Healthcheck in Docker Compose
                 run: |
                     touch .env
-                    echo TESTING_IMAGE=ghcr.io/${{ env.REPO }}:${{ github.run_id }} >> .env
-                    echo MONGODB_ADMINUSERNAME=${{ secrets.MONGODB_ADMINUSERNAME }} >> .env
-                    echo ONGODB_ADMINPASSWORD="${{ secrets.MONGODB_ADMINPASSWORD }} >> .env
+                    export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
+                    # export MONGODB_ADMINUSERNAME=${{ secrets.MONGODB_ADMINUSERNAME }}
+                    # export MONGODB_ADMINPASSWORD=${{ secrets.MONGODB_ADMINPASSWORD }}
                     echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
                     echo DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }} >> .env
                     echo DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} >> .env
@@ -160,8 +160,9 @@ jobs:
                     echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
                     echo PORT=${{ secrets.PORT }} >> .env
                     echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
-
-                    docker compose --env-file .env -f docker-compose.test.yml up --exit-code-from sut
+                    
+                    cat .env
+                    docker compose -f docker-compose.test.yml up --exit-code-from sut
 
     scan-image:
         name: Scan Images for CVEs
