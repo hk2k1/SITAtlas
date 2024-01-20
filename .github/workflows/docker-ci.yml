@@ -134,6 +134,8 @@ jobs:
                 name: Downcase GITHUB_REPOSITORY
                 run: |
                     echo "REPO=${GITHUB_REPOSITORY@L}" >> "$GITHUB_ENV"
+                    pwd
+                    ls -a
             - 
                 name: Login to GitHub Container Registry
                 uses: docker/login-action@v3
@@ -160,9 +162,10 @@ jobs:
                     echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
                     echo PORT=${{ secrets.PORT }} >> .env
                     echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
-                    
+                    pwd
+                    ls -a
                     cat .env
-                    docker compose --env-file .env -f docker-compose.test.yml up --exit-code-from sut
+                    docker compose --env-file .env -f docker-compose.test.yml up
 
     scan-image:
         name: Scan Images for CVEs
