@@ -156,8 +156,8 @@ jobs:
                     echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
                     echo PORT=${{ secrets.PORT }} >> .env
                     echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
-                    echo MONGODB_ADMINUSERNAME=${{MONGODB_ADMINUSERNAME}} >> .env
-                    echo MONGODB_ADMINPASSWORD=${{MONGODB_ADMINPASSWORD}} >> .env
+                    echo MONGODB_ADMINUSERNAME=${{secrets.MONGODB_ADMINUSERNAME}} >> .env
+                    echo MONGODB_ADMINPASSWORD=${{secrets.MONGODB_ADMINPASSWORD}} >> .env
                     cat .env
                     docker compose --env-file .env -f docker-compose.test.yml up --exit-code-from sut
                     
