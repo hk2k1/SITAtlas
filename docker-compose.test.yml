@@ -31,9 +31,9 @@ services:
       interval: 10s
   sut:
     image: "${TESTING_IMAGE}"
-    # depends_on:
-    #   payload:
-    #     condition: service_started
-    #   mongo:
-    #     condition: service_healthy
-    # command: exit 1
+    depends_on:
+      payload:
+        condition: service_started
+      mongo:
+        condition: service_healthy
+    command: exit 1
