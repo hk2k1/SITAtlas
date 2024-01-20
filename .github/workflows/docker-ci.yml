@@ -148,7 +148,16 @@ jobs:
                     export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
                     echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
                     echo NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }} >> .env
+                    echo PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }} >> .env
+                    echo NEXT_PRIVATE_DRAFT_SECRET=${{ secrets.NEXT_PRIVATE_DRAFT_SECRET }} >> .env
+                    echo NEXT_PRIVATE_REVALIDATION_KEY=${{ secrets.NEXT_PRIVATE_REVALIDATION_KEY }} >> .env
+                    echo NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }} >> .env
+                    echo PAYLOAD_PUBLIC_DRAFT_SECRET=${{ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }} >> .env
+                    echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
+                    echo PORT=${{ secrets.PORT }} >> .env
+                    echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
                     cat .env
+                    docker compose --env-file .env -f docker-compose.test.yml up
                     
                 # run: |
                 #     touch .env
