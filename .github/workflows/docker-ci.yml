@@ -144,7 +144,8 @@ jobs:
             -
                 name: Test Healthcheck in Docker Compose
                 run: |
-                    touch.env
+                    touch .env
+                    export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
                 # run: |
                 #     touch .env
                 #     export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
