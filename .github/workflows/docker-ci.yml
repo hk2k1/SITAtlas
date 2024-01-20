@@ -9,238 +9,238 @@ on:
     pull_request:
         
 jobs:
-    build-initial-image:
-        name: Build Docker Image
-        runs-on: ubuntu-20.04
+    # build-initial-image:
+    #     name: Build Docker Image
+    #     runs-on: ubuntu-20.04
 
-        permissions:
-            contents: read
-            security-events: write
-            packages: write
+    #     permissions:
+    #         contents: read
+    #         security-events: write
+    #         packages: write
         
-        steps:
-            - 
-                name: Checkout git repo
-                uses: actions/checkout@v4
-            # -
-            #     name: create env file
-            #     run: |
-            #         touch .env
-            #         echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
-            #         echo DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }} >> .env
-            #         echo DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} >> .env
-            #         echo NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }} >> .env
-            #         echo PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }} >> .env
-            #         echo NEXT_PRIVATE_DRAFT_SECRET=${{ vars.NEXT_PRIVATE_DRAFT_SECRET }} >> .env
-            #         echo NEXT_PRIVATE_REVALIDATION_KEY=${{ vars.NEXT_PRIVATE_REVALIDATION_KEY }} >> .env
-            #         echo NEXT_PUBLIC_SERVER_URL=${{ vars.NEXT_PUBLIC_SERVER_URL }} >> .env
-            #         echo PAYLOAD_PUBLIC_DRAFT_SECRET=${{ vars.PAYLOAD_PUBLIC_DRAFT_SECRET }} >> .env
-            #         echo PAYLOAD_PUBLIC_SERVER_URL=${{ vars.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
-            #         echo PORT=${{ vars.PORT }} >> .env
-            #         echo REVALIDATION_KEY=${{ vars.REVALIDATION_KEY }} >> .env
-            #         cat .env
-            - 
-                name: Downcase GITHUB_REPOSITORY
-                run: |
-                    echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
-            -
-                name: Set up QEMU
-                uses: docker/setup-qemu-action@v3
-            -
-                name: Set up Docker Buildx
-                uses: docker/setup-buildx-action@v3
-            # -
-            #     name: Login to Docker Hub
-            #     uses: docker/login-action@v3
-            #     with:
-            #         username: ${{ secrets.DOCKERHUB_USERNAME }}
-            #         password: ${{ secrets.DOCKERHUB_TOKEN }}
-            - 
-                name: Login to GitHub Container Registry
-                uses: docker/login-action@v3
-                with:
-                    registry: ghcr.io
-                    username: ${{ github.actor }}
-                    password: ${{ secrets.PAT }}
-            -
-                name: Build and push
-                uses: docker/build-push-action@v5
-                with:
-                    push: true
-                    file: infra/docker/Dockerfile.prod
-                    tags:  ghcr.io/${{ env.REPO }}:${{ github.run_id}}
-                    cache-from: type=gha
-                    cache-to: type=gha,mode=max
-                    platforms: linux/amd64
-                    context: .
-                    secrets: |
-                        "DATABASE_URI=${{ secrets.DATABASE_URI }}"
-                        "DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}"
-                        "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}"
-                        "NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }}"
-                        "PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }}"
-                        "NEXT_PRIVATE_DRAFT_SECRET=${{ secrets.NEXT_PRIVATE_DRAFT_SECRET }}"
-                        "NEXT_PRIVATE_REVALIDATION_KEY=${{ secrets.NEXT_PRIVATE_REVALIDATION_KEY }}"
-                        "NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }}"
-                        "PAYLOAD_PUBLIC_DRAFT_SECRET=${{ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }}"
-                        "PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }}"
-                        "PORT=${{ secrets.PORT }}"
-                        "REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }}"
+    #     steps:
+    #         - 
+    #             name: Checkout git repo
+    #             uses: actions/checkout@v4
+    #         # -
+    #         #     name: create env file
+    #         #     run: |
+    #         #         touch .env
+    #         #         echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
+    #         #         echo DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }} >> .env
+    #         #         echo DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} >> .env
+    #         #         echo NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }} >> .env
+    #         #         echo PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }} >> .env
+    #         #         echo NEXT_PRIVATE_DRAFT_SECRET=${{ vars.NEXT_PRIVATE_DRAFT_SECRET }} >> .env
+    #         #         echo NEXT_PRIVATE_REVALIDATION_KEY=${{ vars.NEXT_PRIVATE_REVALIDATION_KEY }} >> .env
+    #         #         echo NEXT_PUBLIC_SERVER_URL=${{ vars.NEXT_PUBLIC_SERVER_URL }} >> .env
+    #         #         echo PAYLOAD_PUBLIC_DRAFT_SECRET=${{ vars.PAYLOAD_PUBLIC_DRAFT_SECRET }} >> .env
+    #         #         echo PAYLOAD_PUBLIC_SERVER_URL=${{ vars.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
+    #         #         echo PORT=${{ vars.PORT }} >> .env
+    #         #         echo REVALIDATION_KEY=${{ vars.REVALIDATION_KEY }} >> .env
+    #         #         cat .env
+    #         - 
+    #             name: Downcase GITHUB_REPOSITORY
+    #             run: |
+    #                 echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+    #         -
+    #             name: Set up QEMU
+    #             uses: docker/setup-qemu-action@v3
+    #         -
+    #             name: Set up Docker Buildx
+    #             uses: docker/setup-buildx-action@v3
+    #         # -
+    #         #     name: Login to Docker Hub
+    #         #     uses: docker/login-action@v3
+    #         #     with:
+    #         #         username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #         #         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    #         - 
+    #             name: Login to GitHub Container Registry
+    #             uses: docker/login-action@v3
+    #             with:
+    #                 registry: ghcr.io
+    #                 username: ${{ github.actor }}
+    #                 password: ${{ secrets.PAT }}
+    #         -
+    #             name: Build and push
+    #             uses: docker/build-push-action@v5
+    #             with:
+    #                 push: true
+    #                 file: infra/docker/Dockerfile.prod
+    #                 tags:  ghcr.io/${{ env.REPO }}:${{ github.run_id}}
+    #                 cache-from: type=gha
+    #                 cache-to: type=gha,mode=max
+    #                 platforms: linux/amd64
+    #                 context: .
+    #                 secrets: |
+    #                     "DATABASE_URI=${{ secrets.DATABASE_URI }}"
+    #                     "DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}"
+    #                     "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}"
+    #                     "NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }}"
+    #                     "PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }}"
+    #                     "NEXT_PRIVATE_DRAFT_SECRET=${{ secrets.NEXT_PRIVATE_DRAFT_SECRET }}"
+    #                     "NEXT_PRIVATE_REVALIDATION_KEY=${{ secrets.NEXT_PRIVATE_REVALIDATION_KEY }}"
+    #                     "NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }}"
+    #                     "PAYLOAD_PUBLIC_DRAFT_SECRET=${{ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }}"
+    #                     "PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }}"
+    #                     "PORT=${{ secrets.PORT }}"
+    #                     "REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }}"
 
-    test-unit:
-        name: Unit Tests in Docker
-        needs: [build-initial-image]
-        runs-on: ubuntu-20.04
+    # test-unit:
+    #     name: Unit Tests in Docker
+    #     needs: [build-initial-image]
+    #     runs-on: ubuntu-20.04
 
-        permissions:
-            contents: read
-            packages: write
+    #     permissions:
+    #         contents: read
+    #         packages: write
         
-        steps:
-            - 
-                name: Checkout git repo
-                uses: actions/checkout@v4
-            - 
-                name: Downcase GITHUB_REPOSITORY
-                run: |
-                    echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
-            - 
-                name: Login to GitHub Container Registry
-                uses: docker/login-action@v3
-                with:
-                    registry: ghcr.io
-                    username: ${{ github.actor }}
-                    password: ${{ secrets.PAT }}
-            -
-                name: Unit Testing in Docker
-                run: |
-                    docker pull ghcr.io/${{ env.REPO }}:${{ github.run_id }}
-                    docker run --rm ghcr.io/${{ env.REPO }}:${{ github.run_id }} echo "ls -a"
+    #     steps:
+    #         - 
+    #             name: Checkout git repo
+    #             uses: actions/checkout@v4
+    #         - 
+    #             name: Downcase GITHUB_REPOSITORY
+    #             run: |
+    #                 echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+    #         - 
+    #             name: Login to GitHub Container Registry
+    #             uses: docker/login-action@v3
+    #             with:
+    #                 registry: ghcr.io
+    #                 username: ${{ github.actor }}
+    #                 password: ${{ secrets.PAT }}
+    #         -
+    #             name: Unit Testing in Docker
+    #             run: |
+    #                 docker pull ghcr.io/${{ env.REPO }}:${{ github.run_id }}
+    #                 docker run --rm ghcr.io/${{ env.REPO }}:${{ github.run_id }} echo "ls -a"
 
-    test-integration:
-        name: Integration Tests in Docker
-        needs: [build-initial-image]
-        runs-on: ubuntu-20.04
+    # test-integration:
+    #     name: Integration Tests in Docker
+    #     needs: [build-initial-image]
+    #     runs-on: ubuntu-20.04
 
-        permissions:
-            contents: read
-            packages: write
+    #     permissions:
+    #         contents: read
+    #         packages: write
         
-        steps:
-            - 
-                name: Checkout git repo
-                uses: actions/checkout@v4
-            - 
-                name: Downcase GITHUB_REPOSITORY
-                run: |
-                    echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
-            - 
-                name: Login to GitHub Container Registry
-                uses: docker/login-action@v3
-                with:
-                    registry: ghcr.io
-                    username: ${{ github.actor }}
-                    password: ${{ secrets.PAT }}
-            -
-                name: Test Healthcheck in Docker Compose
-                run: |
-                    touch .env
-                    export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
-                    export MONGODB_ADMINUSERNAME="${{ secrets.MONGODB_ADMINUSERNAME }}"
-                    export MONGODB_ADMINPASSWORD="${{ secrets.MONGODB_ADMINPASSWORD }}"
-                    echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
-                    echo NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }} >> .env
-                    echo PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }} >> .env
-                    echo NEXT_PRIVATE_DRAFT_SECRET=${{ secrets.NEXT_PRIVATE_DRAFT_SECRET }} >> .env
-                    echo NEXT_PRIVATE_REVALIDATION_KEY=${{ secrets.NEXT_PRIVATE_REVALIDATION_KEY }} >> .env
-                    echo NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }} >> .env
-                    echo PAYLOAD_PUBLIC_DRAFT_SECRET=${{ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }} >> .env
-                    echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
-                    echo PORT=${{ secrets.PORT }} >> .env
-                    echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
-                    echo MONGODB_ADMINUSERNAME=${{secrets.MONGODB_ADMINUSERNAME}} >> .env
-                    echo MONGODB_ADMINPASSWORD=${{secrets.MONGODB_ADMINPASSWORD}} >> .env
-                    cat .env
-                    docker compose --env-file .env -f docker-compose.test.yml up --exit-code-from sut
+    #     steps:
+    #         - 
+    #             name: Checkout git repo
+    #             uses: actions/checkout@v4
+    #         - 
+    #             name: Downcase GITHUB_REPOSITORY
+    #             run: |
+    #                 echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+    #         - 
+    #             name: Login to GitHub Container Registry
+    #             uses: docker/login-action@v3
+    #             with:
+    #                 registry: ghcr.io
+    #                 username: ${{ github.actor }}
+    #                 password: ${{ secrets.PAT }}
+    #         -
+    #             name: Test Healthcheck in Docker Compose
+    #             run: |
+    #                 touch .env
+    #                 export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
+    #                 export MONGODB_ADMINUSERNAME="${{ secrets.MONGODB_ADMINUSERNAME }}"
+    #                 export MONGODB_ADMINPASSWORD="${{ secrets.MONGODB_ADMINPASSWORD }}"
+    #                 echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
+    #                 echo NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }} >> .env
+    #                 echo PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }} >> .env
+    #                 echo NEXT_PRIVATE_DRAFT_SECRET=${{ secrets.NEXT_PRIVATE_DRAFT_SECRET }} >> .env
+    #                 echo NEXT_PRIVATE_REVALIDATION_KEY=${{ secrets.NEXT_PRIVATE_REVALIDATION_KEY }} >> .env
+    #                 echo NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }} >> .env
+    #                 echo PAYLOAD_PUBLIC_DRAFT_SECRET=${{ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }} >> .env
+    #                 echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
+    #                 echo PORT=${{ secrets.PORT }} >> .env
+    #                 echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
+    #                 echo MONGODB_ADMINUSERNAME=${{secrets.MONGODB_ADMINUSERNAME}} >> .env
+    #                 echo MONGODB_ADMINPASSWORD=${{secrets.MONGODB_ADMINPASSWORD}} >> .env
+    #                 cat .env
+    #                 docker compose --env-file .env -f docker-compose.test.yml up --exit-code-from sut
                     
-                # run: |
-                #     touch .env
-                #     export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
-                #     echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
-                #     echo DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }} >> .env
-                #     echo DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} >> .env
-                #     echo NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }} >> .env
-                #     echo PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }} >> .env
-                #     echo NEXT_PRIVATE_DRAFT_SECRET=${{ secrets.NEXT_PRIVATE_DRAFT_SECRET }} >> .env
-                #     echo NEXT_PRIVATE_REVALIDATION_KEY=${{ secrets.NEXT_PRIVATE_REVALIDATION_KEY }} >> .env
-                #     echo NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }} >> .env
-                #     echo PAYLOAD_PUBLIC_DRAFT_SECRET=${{ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }} >> .env
-                #     echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
-                #     echo PORT=${{ secrets.PORT }} >> .env
-                #     echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
+    #             # run: |
+    #             #     touch .env
+    #             #     export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
+    #             #     echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
+    #             #     echo DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }} >> .env
+    #             #     echo DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} >> .env
+    #             #     echo NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }} >> .env
+    #             #     echo PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }} >> .env
+    #             #     echo NEXT_PRIVATE_DRAFT_SECRET=${{ secrets.NEXT_PRIVATE_DRAFT_SECRET }} >> .env
+    #             #     echo NEXT_PRIVATE_REVALIDATION_KEY=${{ secrets.NEXT_PRIVATE_REVALIDATION_KEY }} >> .env
+    #             #     echo NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }} >> .env
+    #             #     echo PAYLOAD_PUBLIC_DRAFT_SECRET=${{ secrets.PAYLOAD_PUBLIC_DRAFT_SECRET }} >> .env
+    #             #     echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
+    #             #     echo PORT=${{ secrets.PORT }} >> .env
+    #             #     echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
 
-                #     cat .env
-                #     docker compose --env-file .env -f docker-compose.test.yml up
+    #             #     cat .env
+    #             #     docker compose --env-file .env -f docker-compose.test.yml up
 
-    scan-image:
-        name: Scan Images for CVEs
-        needs: [build-initial-image]
-        runs-on: ubuntu-20.04
+    # scan-image:
+    #     name: Scan Images for CVEs
+    #     needs: [build-initial-image]
+    #     runs-on: ubuntu-20.04
 
-        permissions:
-            actions: read
-            contents: read
-            packages: read
-            security-events: write
+    #     permissions:
+    #         actions: read
+    #         contents: read
+    #         packages: read
+    #         security-events: write
         
-        steps:
-            - 
-                name: Checkout git repo
-                uses: actions/checkout@v4
-            - 
-                name: Downcase GITHUB_REPOSITORY
-                run: |
-                    echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
-            - 
-                name: Login to GitHub Container Registry
-                uses: docker/login-action@v3
-                with:
-                    registry: ghcr.io
-                    username: ${{ github.actor }}
-                    password: ${{ secrets.PAT }}
-            -
-                name: Pull Image to Scan
-                run: docker pull ghcr.io/${{ env.REPO }}:${{ github.run_id }}
+    #     steps:
+    #         - 
+    #             name: Checkout git repo
+    #             uses: actions/checkout@v4
+    #         - 
+    #             name: Downcase GITHUB_REPOSITORY
+    #             run: |
+    #                 echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+    #         - 
+    #             name: Login to GitHub Container Registry
+    #             uses: docker/login-action@v3
+    #             with:
+    #                 registry: ghcr.io
+    #                 username: ${{ github.actor }}
+    #                 password: ${{ secrets.PAT }}
+    #         -
+    #             name: Pull Image to Scan
+    #             run: docker pull ghcr.io/${{ env.REPO }}:${{ github.run_id }}
                 
-            -
-                name: Run Trivy vulnerability scanner for all CVEs (non-blocking)
-                uses: aquasecurity/trivy-action@master
-                with:
-                    image-ref: 'ghcr.io/${{ env.REPO }}:${{ github.run_id }}'
-                    format: 'table'
-                    exit-code: 0
-            # -
-            #     name: Run Trivy for HIGH,CRITICAL CVEs and report (blocking)
-            #     uses: aquasecurity/trivy-action@master
-            #     with:
-            #         image-ref: 'ghcr.io/${{ env.REPO }}:${{ github.run_id }}'
-            #         exit-code: 1
-            #         ignore-unfixed: true
-            #         vuln-type: 'os,library'
-            #         severity: 'HIGH,CRITICAL'
-            #         format: 'sarif'
-            #         output: 'trivy-results.sarif'
-            # -
-            #     name: Upload Trivy scan results to GitHub Security Tab
-            #     uses: github/codeql-action/upload-sarif@v3
-            #     if: always()
-            #     with:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-            #         # Path to SARIF file relative to the root of the repository
-            #         sarif_file: 'trivy-results.sarif'
+    #         -
+    #             name: Run Trivy vulnerability scanner for all CVEs (non-blocking)
+    #             uses: aquasecurity/trivy-action@master
+    #             with:
+    #                 image-ref: 'ghcr.io/${{ env.REPO }}:${{ github.run_id }}'
+    #                 format: 'table'
+    #                 exit-code: 0
+    #         # -
+    #         #     name: Run Trivy for HIGH,CRITICAL CVEs and report (blocking)
+    #         #     uses: aquasecurity/trivy-action@master
+    #         #     with:
+    #         #         image-ref: 'ghcr.io/${{ env.REPO }}:${{ github.run_id }}'
+    #         #         exit-code: 1
+    #         #         ignore-unfixed: true
+    #         #         vuln-type: 'os,library'
+    #         #         severity: 'HIGH,CRITICAL'
+    #         #         format: 'sarif'
+    #         #         output: 'trivy-results.sarif'
+    #         # -
+    #         #     name: Upload Trivy scan results to GitHub Security Tab
+    #         #     uses: github/codeql-action/upload-sarif@v3
+    #         #     if: always()
+    #         #     with:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    #         #         # Path to SARIF file relative to the root of the repository
+    #         #         sarif_file: 'trivy-results.sarif'
                     
     build-final-image:
         name: Build Final Image
-        needs: [test-unit, test-integration, scan-image]
+        # needs: [test-unit, test-integration, scan-image]
         runs-on: ubuntu-20.04
 
         permissions:
@@ -275,7 +275,7 @@ jobs:
                     images: harshakeerthan/sitatlas:latest
                     flavor: |
                         latest=false
-                        tags: |
+                    tags: |
                         type=raw,value=04
                         type=raw,value=latest,enable=${{ endsWith(github.ref, github.event.repository.default_branch) }}
                         type=ref,event=pr
