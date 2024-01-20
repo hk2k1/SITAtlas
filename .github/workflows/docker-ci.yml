@@ -272,7 +272,7 @@ jobs:
                 id: docker_meta
                 uses: docker/metadata-action@v5
                 with:
-                    images: docker.io/harshakeerthan/sitatlas, ghcr.io/hk2k1/sitatlas
+                    images: docker.io/harshakeerthan/sitatlas
                     flavor: |
                         latest=false
                     tags: |
