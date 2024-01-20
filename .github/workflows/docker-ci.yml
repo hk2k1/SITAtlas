@@ -162,7 +162,7 @@ jobs:
                     echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
                     
                     cat .env
-                    docker compose -f docker-compose.test.yml up --exit-code-from sut
+                    docker compose --env-file .env -f docker-compose.test.yml up --exit-code-from sut
 
     scan-image:
         name: Scan Images for CVEs
