@@ -272,11 +272,11 @@ jobs:
                 id: docker_meta
                 uses: docker/metadata-action@v5
                 with:
-                    images: harshakeerthan/sitatlas:latest
+                    images: docker.io/harshakeerthan/sitatlas, ghcr.io/hk2k1/sitatlas
                     flavor: |
                         latest=false
                     tags: |
-                        type=raw,value=04
+                        type=raw,value=99
                         type=raw,value=latest,enable=${{ endsWith(github.ref, github.event.repository.default_branch) }}
                         type=ref,event=pr
                         type=ref,event=branch
