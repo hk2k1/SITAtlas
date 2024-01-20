@@ -25,9 +25,9 @@ services:
     #   ME_CONFIG_MONGODB_ADMINPASSWORD: "${MONGODB_ADMINPASSWORD}"
     #   ME_CONFIG_MONGODB_URL: 'mongodb+srv://${MONGODB_ADMINUSERNAME}:${MONGODB_ADMINPASSWORD}@sitatlas-cluster.3eew6oe.mongodb.net/payload_sandbox'
     volumes:
-      - ./infra:/healthchecks
+      - ./healthchecks:/healthchecks
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh '$${MONGODB_ADMINUSERNAME}:$${MONGODB_ADMINPASSWORD}@sitatlas-cluster.3eew6oe.mongodb.net/payload_sandbox' --quiet
+      test: echo 'db.runCommand("ping").ok' | mongosh "$${MONGODB_ADMINUSERNAME}:$${MONGODB_ADMINPASSWORD}@sitatlas-cluster.3eew6oe.mongodb.net/payload_sandbox" --quiet
       interval: 10s
   sut:
     image: "${TESTING_IMAGE}"
@@ -36,4 +36,5 @@ services:
         condition: service_started
       mongo:
         condition: service_healthy
-    command: exit 1
+    # TODO: change npm --version to npm test and run test commands to api connected to DB
+    command: npm --version || exit 1
