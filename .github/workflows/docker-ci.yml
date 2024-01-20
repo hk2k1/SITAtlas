@@ -244,8 +244,8 @@ jobs:
         runs-on: ubuntu-20.04
 
         permissions:
+            contents: read
             packages: write
-            pull-requests: write
             
         steps:
             - 
@@ -281,11 +281,13 @@ jobs:
                         type=ref,event=pr
                         type=ref,event=branch
                         type=semver,pattern={{version}}
+                        type=raw,value={{date 'YYYYMMDD'}}-{{sha}}
             -
                 name: Build and push
                 uses: docker/build-push-action@v5
                 with:
                     push: true
+                    file: ./infra/Dockerfile.prod
                     load: true
                     tags: ${{ steps.docker_meta.outputs.tags }}
                     labels: ${{ steps.docker_meta.outputs.labels }}
