@@ -27,7 +27,7 @@ services:
     volumes:
       - ./healthchecks:/healthchecks
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh "mongodb+srv://$${MONGODB_ADMINUSERNAME}:$${MONGODB_ADMINPASSWORD}@sitatlas-cluster.3eew6oe.mongodb.net/payload_sandbox" --quiet
+      test: echo 'db.runCommand("ping").ok' | mongosh "mongodb+srv://${MONGODB_ADMINUSERNAME}:${MONGODB_ADMINPASSWORD}@sitatlas-cluster.3eew6oe.mongodb.net/payload_sandbox" --quiet
       interval: 10s
   sut:
     image: "${TESTING_IMAGE}"

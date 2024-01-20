@@ -146,6 +146,8 @@ jobs:
                 run: |
                     touch .env
                     export TESTING_IMAGE="ghcr.io/${{ env.REPO }}:${{ github.run_id }}"
+                    export MONGODB_ADMINUSERNAME="${{ secrets.MONGODB_ADMINUSERNAME }}"
+                    export MONGODB_ADMINPASSWORD="${{ secrets.MONGODB_ADMINPASSWORD }}"
                     echo DATABASE_URI=${{ secrets.DATABASE_URI }} >> .env
                     echo NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }} >> .env
                     echo PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }} >> .env
