@@ -1,8 +1,11 @@
 version: '3.8'
 services:
   payload:
-    image: "ghcr.io/hk2k1/sitatlas:7591267369"
+    image: "${TESTING_IMAGE}"
+    env_file:
+      - .env
     # environment:
+      # PAYLOAD_SECRET: jd3u1nnxo12icin2d2cece
     #   DATABASE_URI: $${ secrets.DATABASE_URI }
     #   #: - DOCKERHUB_TOKEN: $${ secrets.DOCKERHUB_TOKEN }
     #   #: - DOCKERHUB_USERNAME: $${ secrets.DOCKERHUB_USERNAME }
@@ -26,8 +29,8 @@ services:
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo '$${ secrets.DATABASE_URI }' --quiet
       interval: 10s
-  # sut:
-  #   image: "${TESTING_IMAGE}"
+  sut:
+    image: "${TESTING_IMAGE}"
     # depends_on:
     #   payload:
     #     condition: service_started
