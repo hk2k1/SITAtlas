@@ -41,8 +41,7 @@ jobs:
                     username: ${{ secrets.DO_PRODUCTION_USERNAME }}
                     # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
                     key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
-                    source: |
-                        "deploy.tar"
+                    source: "deploy.tar"
                     target: "/home/sitatlas/home/app/sitatlas/"
             - 
                 name: SSH and Deploy
