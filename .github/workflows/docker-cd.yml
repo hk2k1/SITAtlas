@@ -29,9 +29,10 @@ jobs:
                     cp -TR . ../build
                     tar -cvf deploy.tar ../build/
             - 
-                name: Sleep for 30s
-                run: sleep 30s
-                shell: bash
+                name: Sleep for 30 seconds
+                uses: jakejarvis/wait-action@master
+                with:
+                    time: '30s'
             - 
                 name: SCP docker-compose.prod to Server
                 uses: appleboy/scp-action@master
