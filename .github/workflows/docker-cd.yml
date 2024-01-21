@@ -51,13 +51,15 @@ jobs:
                         echo "Unzip and Move Files"
                         cd /home/sitatlas/home/app/sitatlas/
                         tar -xf deploy.tar
-                        cp build/docker-compose.prod.yml ./
-                        cp build/Dockerfile.prod ./infra/docker/
+                        cp -f build/docker-compose.prod.yml ./
+                        cp -f build/Dockerfile.prod ./infra/docker/
+                        rm -rf build/
+                        rm -rf deploy.tar
 
                         echo "Running Docker Compose"
-                        docker-compose -f docker-compose.prod pull
-                        docker-compose -f docker-compose.prod down
-                        docker-compose -f docker-compose.prod up -d
+                        docker compose -f docker-compose.prod pull
+                        docker compose -f docker-compose.prod down
+                        docker compose -f docker-compose.prod up -d
 
                         echo "Restarting NGINX"
                         sudo systemctl restart nginx
