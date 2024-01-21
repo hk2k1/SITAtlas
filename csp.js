@@ -43,6 +43,7 @@ const policies = {
         'https://*.tiles.mapbox.com',
         'https://api.mapbox.com',
         'https://events.mapbox.com',
+        'https://harshakeerthan.com',
     ],
     'worker-src': ['blob:'],
 };
