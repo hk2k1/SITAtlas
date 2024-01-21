@@ -21,18 +21,24 @@ jobs:
             - 
                 name: Check git repo
                 uses: actions/checkout@v2
-            # - 
-            #     name: SCP docker-compose.prod to Server
-            #     uses: appleboy/scp-action@master
-            #     with:
-            #         host: ${{ secrets.DO_PRODUCTION_HOST }}
-            #         username: ${{ secrets.DO_PRODUCTION_USERNAME }}
-            #         # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
-            #         key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
-            #         source: |
-            #             "docker-compose.prod.yml"
-            #             "infra/docker/Dockerfile.prod"
-            #         target: "/home/sitatlas/home/app/sitatlas/"
+                # Runs a set of commands using the runners shell
+            - 
+                name: Run a multi-line script
+                run: |
+                    mkdir ../build
+                    cp -TR ./docker-compose.prod.yml ../build
+                    tar -cvf deploy.tar ../build/
+            - 
+                name: SCP docker-compose.prod to Server
+                uses: appleboy/scp-action@master
+                with:
+                    host: ${{ secrets.DO_PRODUCTION_HOST }}
+                    username: ${{ secrets.DO_PRODUCTION_USERNAME }}
+                    # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
+                    key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
+                    source: |
+                        "deploy.tar"
+                    target: "/home/sitatlas/home/app/sitatlas/"
             - 
                 name: SSH and Deploy
                 uses: appleboy/ssh-action@master
@@ -44,15 +50,16 @@ jobs:
                     script: |
                         echo "Copying Files to DO VPS"
                         cd /home/sitatlas/home/app/sitatlas/
-                        cp -f "${GITHUB_WORKSPACE}/docker-compose.prod ./"
-                        cp -f "${GITHUB_WORKSPACE}/infra/docker/Dockerfile.prod ./"
-                        echo "${GITHUB_WORKSPACE}"
+                        ls -a
+                        # cp -f "${GITHUB_WORKSPACE}/docker-compose.prod ./"
+                        # cp -f "${GITHUB_WORKSPACE}/infra/docker/Dockerfile.prod ./"
+                        # echo "${GITHUB_WORKSPACE}"
 
-                        echo "Running Docker Compose"
-                        docker-compose -f docker-compose.prod pull
-                        docker-compose -f docker-compose.prod down
-                        docker-compose -f docker-compose.prod up -d
+                        # echo "Running Docker Compose"
+                        # docker-compose -f docker-compose.prod pull
+                        # docker-compose -f docker-compose.prod down
+                        # docker-compose -f docker-compose.prod up -d
 
-                        echo "Restarting NGINX"
-                        sudo systemctl restart nginx
+                        # echo "Restarting NGINX"
+                        # sudo systemctl restart nginx
                 
