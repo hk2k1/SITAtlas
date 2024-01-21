@@ -286,8 +286,7 @@ jobs:
                     flavor: |
                         latest=false
                     tags: |
-                        type=raw,value=99
-                        type=raw,value=latest,enable=${{ endsWith(github.ref, github.event.repository.default_branch) && matrix.platform == 'linux/amd64' }}
+                        type=raw,value=latest,enable=${{ (endsWith(github.ref, github.event.repository.default_branch) || endsWith(github.ref, 'release')) && matrix.platform == 'linux/amd64' }}
                         type=ref,event=pr
                         type=ref,event=branch
                         type=semver,pattern={{version}}
