@@ -35,8 +35,8 @@ jobs:
                 with:
                     host: ${{ secrets.DO_PRODUCTION_HOST }}
                     username: ${{ secrets.DO_PRODUCTION_USERNAME }}
-                    # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
-                    key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
+                    password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
+                    # key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
                     source: "deploy.tar"
                     target: "/home/sitatlas/home/app/sitatlas/"
             - 
@@ -45,8 +45,8 @@ jobs:
                 with:
                     host: ${{ secrets.DO_PRODUCTION_HOST }}
                     username: ${{ secrets.DO_PRODUCTION_USERNAME }}
-                    # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
-                    key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
+                    password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
+                    # key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
                     script: |
                         echo "Unzip and Move Files"
                         cd /home/sitatlas/home/app/sitatlas/
