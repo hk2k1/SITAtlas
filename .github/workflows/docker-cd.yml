@@ -1,8 +1,8 @@
-name: Continous Deplyoment - Docker
+name: Continous Deplyoment
 
 on:
     workflow_run:
-        workflows: ["Continuous Integration"]
+        workflows: ["Continous Integration"]
         branches: [release]
         types:
             - completed
@@ -10,9 +10,9 @@ on:
         types: [closed]
         branches:
             - release
-    push:
-        branches:
-            - '*'
+    # push:
+    #     branches:
+    #         - '*'
 
 jobs:
     deploy:
