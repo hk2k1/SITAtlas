@@ -3,7 +3,7 @@ name: Continous Deplyoment
 on:
     workflow_run:
         workflows: ["Continous Integration"]
-        branches: [release]
+        branches: ["*"]
         types:
             - completed
     pull_request:
