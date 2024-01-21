@@ -300,8 +300,6 @@ jobs:
                     file: ./infra/docker/Dockerfile.initial
                     tags: ${{ steps.docker_meta.outputs.tags }}
                     labels: ${{ steps.docker_meta.outputs.labels }}
-                    cache-from: type=gha
-                    cache-to: type=gha,mode=max
                     platforms: ${{ matrix.platform }}
                     secrets: |
                         "DATABASE_URI=${{ secrets.DATABASE_URI }}"
