@@ -57,9 +57,9 @@ jobs:
                         rm -rf deploy.tar
 
                         echo "Running Docker Compose"
-                        docker compose -f docker-compose.prod pull
-                        docker compose -f docker-compose.prod down
-                        docker compose -f docker-compose.prod up -d
+                        docker compose -f docker-compose.prod.yml pull
+                        docker compose -f docker-compose.prod.yml down
+                        docker compose -f docker-compose.prod.yml up -d
 
                         echo "Restarting NGINX"
                         sudo systemctl restart nginx
