@@ -26,7 +26,7 @@ jobs:
                 name: Run a multi-line script
                 run: |
                     mkdir ../build
-                    cp -TR . ../build
+                    cp -T docker-compose.prod.yml ../build
                     tar -cvf deploy.tar ../build/
             - 
                 name: Sleep for 30 seconds
@@ -42,7 +42,7 @@ jobs:
                     # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
                     key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
                     source: "deploy.tar"
-                    target: "/home/sitatlas/home/app/sitatlas/"
+                    target: "/home/sitatlas/home/app/sitatlas/infra/"
             - 
                 name: SSH and Deploy
                 uses: appleboy/ssh-action@master
