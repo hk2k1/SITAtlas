@@ -26,7 +26,7 @@ jobs:
                 name: Run a multi-line script
                 run: |
                     mkdir ../build
-                    cp -TR ./docker-compose.prod.yml ../build
+                    cp -TR . ../build
                     tar -cvf deploy.tar ../build/
             - 
                 name: SCP docker-compose.prod to Server
