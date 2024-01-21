@@ -45,7 +45,7 @@ jobs:
                         cd /home/sitatlas/home/app/sitatlas/
                         # cp -f $GITHUB_WORKSPACE/docker-compose.prod ./
                         # cp -f $GITHUB_WORKSPACE/infra/docker/Dockerfile.prod ./
-                        echo "${{ GITHUB_WORKSPACE }}"
+                        echo "${ GITHUB_WORKSPACE }"
 
                         echo "Running Docker Compose"
                         docker-compose -f docker-compose.prod pull
