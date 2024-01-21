@@ -67,7 +67,7 @@ jobs:
                 uses: docker/build-push-action@v5
                 with:
                     push: true
-                    file: infra/docker/Dockerfile.prod
+                    file: infra/docker/Dockerfile.initial
                     tags:  ghcr.io/${{ env.REPO }}:${{ github.run_id}}
                     cache-from: type=gha
                     cache-to: type=gha,mode=max
