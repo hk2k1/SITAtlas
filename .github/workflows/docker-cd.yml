@@ -27,6 +27,7 @@ jobs:
                 run: |
                     mkdir ../build
                     cp docker-compose.prod.yml ../build
+                    cp infra/docker/Dockerfile.prod ../build
                     tar -cvf deploy.tar ../build/
             - 
                 name: SCP docker-compose.prod to Server
@@ -37,7 +38,7 @@ jobs:
                     # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
                     key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
                     source: "deploy.tar"
-                    target: "/home/sitatlas/home/app/sitatlas/infra/"
+                    target: "/home/sitatlas/home/app/sitatlas/"
             - 
                 name: SSH and Deploy
                 uses: appleboy/ssh-action@master
@@ -47,18 +48,17 @@ jobs:
                     # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
                     key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
                     script: |
-                        echo "Copying Files to DO VPS"
+                        echo "Unzip and Move Files"
                         cd /home/sitatlas/home/app/sitatlas/
-                        ls -a
-                        # cp -f "${GITHUB_WORKSPACE}/docker-compose.prod ./"
-                        # cp -f "${GITHUB_WORKSPACE}/infra/docker/Dockerfile.prod ./"
-                        # echo "${GITHUB_WORKSPACE}"
+                        tar -xf deploy.tar
+                        cp build/docker-compose.prod.yml ./
+                        cp build/Dockerfile.prod ./infra/docker/
 
-                        # echo "Running Docker Compose"
-                        # docker-compose -f docker-compose.prod pull
-                        # docker-compose -f docker-compose.prod down
-                        # docker-compose -f docker-compose.prod up -d
+                        echo "Running Docker Compose"
+                        docker-compose -f docker-compose.prod pull
+                        docker-compose -f docker-compose.prod down
+                        docker-compose -f docker-compose.prod up -d
 
-                        # echo "Restarting NGINX"
-                        # sudo systemctl restart nginx
+                        echo "Restarting NGINX"
+                        sudo systemctl restart nginx
                 
