@@ -25,9 +25,10 @@ jobs:
                 name: SCP docker-compose.prod to Server
                 uses: appleboy/scp-action@master
                 with:
-                    host: ${{ secrets.SERVER_HOST }}
-                    username: ${{ secrets.SERVER_USERNAME }}
-                    key: ${{ secrets.SSH_PRIVATE_KEY }}
+                    host: ${{ secrets.DO_PRODUCTION_HOST }}
+                    username: ${{ secrets.DO_PRODUCTION_USERNAME }}
+                    # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
+                    key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
                     source: |
                         "docker-compose.prod.yml"
                         "/infra/docker/Dockerfile.prod"
