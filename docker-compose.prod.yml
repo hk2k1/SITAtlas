@@ -13,10 +13,6 @@ services:
     working_dir: /home/node/app/
     env_file:
       - .env
-    networks:
-      - payload_network
     restart: unless-stopped
 volumes:
   node_modules:
-networks:
-  payload_network:
