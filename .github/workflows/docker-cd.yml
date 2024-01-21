@@ -26,13 +26,8 @@ jobs:
                 name: Run a multi-line script
                 run: |
                     mkdir ../build
-                    cp -T docker-compose.prod.yml ../build
+                    cp docker-compose.prod.yml ../build
                     tar -cvf deploy.tar ../build/
-            - 
-                name: Sleep for 30 seconds
-                uses: jakejarvis/wait-action@master
-                with:
-                    time: '30s'
             - 
                 name: SCP docker-compose.prod to Server
                 uses: appleboy/scp-action@master
