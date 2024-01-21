@@ -1,0 +1,45 @@
+name: Continous Deplyoment - Docker
+
+on:
+    workflow_run:
+        workflows: ["Continuous Integration"]
+        branches: [release]
+        types:
+            - completed
+    pull_request:
+        types: [closed]
+        branches:
+            - release
+    push:
+        branches:
+            - '*'
+
+jobs:
+    deploy:
+        runs-on: ubuntu-20.04
+        steps:
+            - 
+                name: Check git repo
+                uses: actions/checkout@v2
+            - 
+                name: SSH and Deploy
+                uses: appleboy/ssh-action@master
+                with:
+                    host: ${{ secrets.DO_PRODUCTION_HOST }}
+                    username: ${{ secrets.DO_PRODUCTION_USERNAME }}
+                    # password: ${{ secrets.DO_PRODUCTION_PASSWORD }}
+                    key: ${{ secrets.DO_PRODUCTION_PRIVATE_KEY }}
+                    script: |
+                        echo "Copying Files to DO VPS"
+                        cd /home/sitatlas/home/app/sitatlas/
+                        cp -f $GITHUB_WORKSPACE/docker-compose.prod ./
+                        cp -f $GITHUB_WORKSPACE/infra/docker/Dockerfile.prod ./
+
+                        echo "Running Docker Compose"
+                        docker-compose -f docker-compose.prod pull
+                        docker-compose -f docker-compose.prod down
+                        docker-compose -f docker-compose.prod up -d
+
+                        echo "Restarting NGINX"
+                        sudo systemctl restart nginx
+                

@@ -1,12 +1,12 @@
-name: docker - ci
+name: Continous Integration - Docker
 
 on:
     push:
-        branches:
-            - '*'
+        branches: [ release ]
         tags:
             - 'v*'
     pull_request:
+        branches: [ release ]
         
 jobs:
     build-initial-image:
