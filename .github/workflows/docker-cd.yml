@@ -68,5 +68,5 @@ jobs:
                         docker compose -f docker-compose.prod.yml up -d
 
                         echo "Restarting NGINX"
-                        sudo systemctl restart nginx
+                        sudo -S systemctl restart nginx
                 
