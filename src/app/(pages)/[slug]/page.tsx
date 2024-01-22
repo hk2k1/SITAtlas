@@ -12,6 +12,8 @@ import { Blocks } from '../../_components/Blocks';
 import { Hero } from '../../_components/Hero';
 import { generateMeta } from '../../_utilities/generateMeta';
 
+import rajPic from '/assets/raj.jpg';
+
 // Payload Cloud caches all files through Cloudflare, so we don't need Next.js to cache them as well
 // This means that we can turn off Next.js data caching and instead rely solely on the Cloudflare CDN
 // To do this, we include the `no-cache` header on the fetch requests used to get the data for this page
@@ -55,7 +57,7 @@ export default async function Page({ params: { slug = 'home' } }) {
         <React.Fragment>
             {/* <div>Hello </div> */}
             <Image
-                src="/assets/raj.jpg" // Relative path to your image file
+                src={rajPic} // Relative path to your image file
                 alt="Description of the image" // Good practice for accessibility and SEO
                 width={200} // Desired width (in pixels)
                 height={30} // Desired height (in pixels)
