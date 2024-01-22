@@ -6,7 +6,7 @@ on:
         tags:
             - 'v*'
     pull_request:
-        branches: [ release ]
+        branches: [ master ]
         
 jobs:
     build-initial-image:
@@ -286,8 +286,7 @@ jobs:
                     flavor: |
                         latest=false
                     tags: |
-                        type=raw,value=99
-                        type=raw,value=latest,enable=${{ endsWith(github.ref, github.event.repository.default_branch) && matrix.platform == 'linux/amd64' }}
+                        type=raw,value=latest,enable=${{ (endsWith(github.ref, github.event.repository.default_branch) || endsWith(github.ref, 'release')) && matrix.platform == 'linux/amd64' }}
                         type=ref,event=pr
                         type=ref,event=branch
                         type=semver,pattern={{version}}
@@ -300,8 +299,6 @@ jobs:
                     file: ./infra/docker/Dockerfile.initial
                     tags: ${{ steps.docker_meta.outputs.tags }}
                     labels: ${{ steps.docker_meta.outputs.labels }}
-                    cache-from: type=gha
-                    cache-to: type=gha,mode=max
                     platforms: ${{ matrix.platform }}
                     secrets: |
                         "DATABASE_URI=${{ secrets.DATABASE_URI }}"

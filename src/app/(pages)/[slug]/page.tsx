@@ -52,7 +52,7 @@ export default async function Page({ params: { slug = 'home' } }) {
 
     return (
         <React.Fragment>
-            <div>Hello</div>
+            {/* <div>Hello </div> */}
             <Hero {...hero} />
             <Blocks
                 blocks={layout}

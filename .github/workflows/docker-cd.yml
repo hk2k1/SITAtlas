@@ -9,7 +9,7 @@ on:
     pull_request:
         types: [closed]
         branches:
-            - release
+            - master
     # push:
     #     branches:
     #         - '*'
