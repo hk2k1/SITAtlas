@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { Page } from '../../../payload/payload-types';
@@ -53,6 +54,12 @@ export default async function Page({ params: { slug = 'home' } }) {
     return (
         <React.Fragment>
             {/* <div>Hello </div> */}
+            <Image
+                src="/assets/raj.jpg" // Relative path to your image file
+                alt="Description of the image" // Good practice for accessibility and SEO
+                width={200} // Desired width (in pixels)
+                height={30} // Desired height (in pixels)
+            />
             <Hero {...hero} />
             <Blocks
                 blocks={layout}
