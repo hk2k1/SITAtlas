@@ -5,13 +5,76 @@
     height: 100vh;
   }
 
-.button {  
-  background-color: #04AA6D; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+
+.mapboxgl-ctrl-group button {
+  width: 29px;
+  height: 29px;
+  display: block;
+  padding: 0;
+  outline: none;
+  border: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  cursor: pointer;
+  color: black !important;
 }
+
+.normal{
+  font-family: monospace;
+  font-size: 1.0rem;
+  color: #FAFAFA;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px solid #FAFAFA;
+  background: #252525;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.normal:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.dropdown {
+  position: absolute;
+  top: 3%;
+  left: 1%;
+  display: inline-block;
+  z-index: 1000;
+}
+.dropbtn {
+  background-color: #2d2928;
+  color: white;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  top: 3.5rem;
+}
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+.dropdownContent button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border: none;
+  background: none;
+  width: 100%;
+  z-index: 1000;
+  &:hover {background-color: #f1f1f1}
+}
+.show {display: block;
+top: 3.5rem;
+left: 1rem;}

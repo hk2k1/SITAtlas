@@ -144,6 +144,13 @@ const Mapbox = () => {
                 <button onClick={flyToLocation} style={{ position: 'absolute', top: 10, left: 10 }}>
                     Fly
                 </button>
+                <div className="menu">
+                    {geojsonMaps.map((item, index) => (
+                        <button key={index} onClick={() => flyToLocation(item.center)}>
+                            Fly to {item.name}
+                        </button>
+                    ))}
+                </div>
                 <FullscreenControl />
                 <GeolocateControl />
                 {/* <Source id="3d-building" type="geojson" data={geojson}>

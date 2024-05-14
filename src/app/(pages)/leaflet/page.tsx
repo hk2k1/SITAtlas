@@ -2,6 +2,7 @@
 import dynamic from 'next/dynamic';
 // import { useMemo } from 'react';
 // console.log(useMemo);
+import { DropdownMenuRadioGroupDemo } from '../../_components/DropdownShade';
 
 export default async function Leaflet() {
     // useMemo(()=>console.log("test"),[])
@@ -12,6 +13,7 @@ export default async function Leaflet() {
 
     return (
         <div>
+            <DropdownMenuRadioGroupDemo />
             <Map />
         </div>
     );

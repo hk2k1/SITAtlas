@@ -117,6 +117,7 @@ class IndoorControl {
         const a = document.createElement('button');
         a.innerHTML = level.toString();
         a.classList.add('mapboxgl-ctrl-icon');
+        a.classList.add('button');
         container.appendChild(a);
         a.addEventListener('click', () => {
             this._map?.fire('indoor.control.clicked', { level });

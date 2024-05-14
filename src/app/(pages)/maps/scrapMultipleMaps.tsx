@@ -13,7 +13,6 @@ import caserne from '../../_data/caserne.json';
 import garedelest from '../../_data/gare-de-l-est.json';
 import gjson from '../../_data/geojson.json';
 import grandPlace from '../../_data/grand-place.json';
-import punggol from '../../_data/punggol.json';
 import { addIndoorTo, IndoorControl, IndoorMap, MapboxMapWithIndoor } from '../../_indoormap';
 
 // Mapbox CSS
@@ -32,7 +31,6 @@ const Mapbox = () => {
     const garedelestgeojson: any = garedelest.geojson;
     const casernegeojson: any = caserne.geojson;
     const grandPlacegeojson: any = grandPlace.geojson;
-    const punggolgeojson: any = punggol.geojson;
     const [indoorMapEnabled, setIndoorMapEnabled] = useState(false);
     const [geojsonMaps, setGeojsonMaps] = useState([
         { data: garedelestgeojson, center: [2.3592843, 48.8767904], name: 'garedelest' },
@@ -43,7 +41,6 @@ const Mapbox = () => {
             name: 'grandPlace',
             defaultLevel: 1,
         },
-        { data: punggolgeojson, center: [103.911825, 1.413736], name: 'punggol' },
     ]);
     const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -100,12 +97,16 @@ const Mapbox = () => {
             // ];
             // geojsonMaps.forEach(({ data, center }) => createMenuButton(data, center));
             const beforeLayerId = 'housenum-label';
-            const layersToHide = ['housenum-label'];
+            const layersToHide = [
+                'poi-scalerank4-l15',
+                'poi-scalerank4-l1',
+                'poi-scalerank3',
+                'road-label-small',
+            ];
             geojsonMaps.forEach(({ data, defaultLevel }) => {
                 // Create indoor map from imported geojson and options
                 const indoorMap = IndoorMap.fromGeojson(data, {
                     beforeLayerId,
-                    layersToHide,
                     defaultLevel,
                 });
 
@@ -117,8 +118,8 @@ const Mapbox = () => {
                 localGeocoderOnly: true,
                 localGeocoder: (query: string): Result[] => {
                     const matchingFeatures = [];
-                    for (let i = 0; i < punggolgeojson.features.length; i++) {
-                        const feature = punggolgeojson.features[i];
+                    for (let i = 0; i < garedelestgeojson.features.length; i++) {
+                        const feature = garedelestgeojson.features[i];
                         if (
                             feature.properties.name &&
                             feature.properties.name.toLowerCase().search(query.toLowerCase()) !== -1
@@ -132,12 +133,10 @@ const Mapbox = () => {
                     return matchingFeatures;
                 },
                 mapboxToken,
-                zoom: 22,
+                zoom: 20,
                 placeholder: 'Enter search e.g. Room',
-                marker: true,
+                marker: false,
             });
-            // An event listener is added to the customGeocoder object for the 'result' event.
-            // When a search result is selected, if the result has a properties object and a level property, the indoor level of the map is set to the value of the level property.
             customGeocoder.on('result', (geocoder: any) => {
                 if (geocoder.result.properties && geocoder.result.properties.level) {
                     mapRef.current.indoor.setLevel(parseInt(geocoder.result.properties.level));
@@ -160,7 +159,7 @@ const Mapbox = () => {
     // };
 
     const flyToLocation = center => {
-        mapRef.current.flyTo({ center, zoom: 22, duration: 2000 });
+        mapRef.current.flyTo({ center, zoom: 18, duration: 2000 });
     };
 
     // const menuContainer = document.createElement('div');
@@ -204,22 +203,13 @@ const Mapbox = () => {
                     ref={mapContainerRef}
                     style={{ height: '90vh', width: '90vw' }}
                 >
-                    <div className={styles.dropdown}>
-                        <button
-                            className={styles.dropbtn}
-                            onClick={() => setMenuOpen(!isMenuOpen)}
-                            style={{ position: 'absolute', top: 50, left: 10, zIndex: 1000 }}
-                        >
-                            Locations <i className="fa fa-caret-down"></i>
-                        </button>
-                    </div>
                     <div
-                        className={`${styles.dropdownContent} ${isMenuOpen ? styles.show : ''}`}
+                        className={`${styles.menu} ${isMenuOpen ? styles.active : ''}`}
                         style={{ zIndex: 1000 }}
                     >
                         {geojsonMaps.map((item, index) => (
                             <button
-                                className={styles.dropbtn}
+                                className={styles.button}
                                 key={index}
                                 onClick={() => {
                                     flyToLocation(item.center);
@@ -231,13 +221,12 @@ const Mapbox = () => {
                             </button>
                         ))}
                     </div>
-                    {/* <button
-                        className={styles.dropbtn}
+                    <button
                         onClick={() => setMenuOpen(!isMenuOpen)}
                         style={{ position: 'absolute', top: 10, left: 10, zIndex: 1000 }}
                     >
                         Toggle Menu
-                    </button> */}
+                    </button>
                 </div>
             </div>
         </div>
