@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import next from 'next';
 import nextBuild from 'next/dist/build';
-import open from 'open';
+// import open from 'open';
 import path from 'path';
 
 dotenv.config({
@@ -61,7 +61,7 @@ const start = async (): Promise<void> => {
 
         app.listen(PORT, async () => {
             payload.logger.info(`Next.js App URL: ${process.env.PAYLOAD_PUBLIC_SERVER_URL}`);
-            open(process.env.PAYLOAD_PUBLIC_SERVER_URL);
+            // open(process.env.PAYLOAD_PUBLIC_SERVER_URL);
         });
     });
 };
