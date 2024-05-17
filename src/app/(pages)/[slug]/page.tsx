@@ -1,9 +1,11 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { staticHome } from '../../../payload/old_seed/home-static';
+
 import { Page } from '../../../payload/payload-types';
 import { fetchDoc } from '../../_api/fetchDoc';
 import { fetchDocs } from '../../_api/fetchDocs';
@@ -53,6 +55,12 @@ export default async function Page({ params: { slug = 'home' } }) {
     return (
         <React.Fragment>
             {/* <div>Hello </div> */}
+            <Image
+                src={rajPic} // Relative path to your image file
+                alt="Description of the image" // Good practice for accessibility and SEO
+                width={200} // Desired width (in pixels)
+                height={30} // Desired height (in pixels)
+            />
             <Hero {...hero} />
             <Blocks
                 blocks={layout}
