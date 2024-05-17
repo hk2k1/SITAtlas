@@ -1,0 +1,2726 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "public",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR211",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 12,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr211",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.91184350291323,
+              1.4135888268910157
+            ],
+            [
+              103.911896,
+              1.413589
+            ],
+            [
+              103.91190617346696,
+              1.4135598324129677
+            ],
+            [
+              103.911857,
+              1.413537
+            ],
+            [
+              103.91184350291323,
+              1.4135888268910157
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "name": "corridor",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "corridor",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "area03",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911897,
+              1.413586
+            ],
+            [
+              103.911942,
+              1.413586
+            ],
+            [
+              103.91195183818924,
+              1.4135563351739793
+            ],
+            [
+              103.91196049708519,
+              1.4135565027610257
+            ],
+            [
+              103.91196133527602,
+              1.4135323406959597
+            ],
+            [
+              103.91195700582816,
+              1.413532
+            ],
+            [
+              103.91196183819089,
+              1.413488837935005
+            ],
+            [
+              103.911962,
+              1.413438
+            ],
+            [
+              103.911939,
+              1.413438
+            ],
+            [
+              103.911939,
+              1.413479
+            ],
+            [
+              103.911926,
+              1.413509
+            ],
+            [
+              103.911916,
+              1.413531
+            ],
+            [
+              103.91191,
+              1.41355
+            ],
+            [
+              103.911897,
+              1.413586
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "name": "lobby",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "area01",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.912126,
+              1.413766
+            ],
+            [
+              103.911987,
+              1.413765
+            ],
+            [
+              103.911986,
+              1.413532
+            ],
+            [
+              103.912014,
+              1.413531
+            ],
+            [
+              103.912014,
+              1.413559
+            ],
+            [
+              103.912112,
+              1.413558
+            ],
+            [
+              103.912112,
+              1.413504
+            ],
+            [
+              103.912131,
+              1.413504
+            ],
+            [
+              103.91213,
+              1.413438
+            ],
+            [
+              103.912152,
+              1.413438
+            ],
+            [
+              103.912154,
+              1.413558
+            ],
+            [
+              103.912281,
+              1.413558
+            ],
+            [
+              103.912251,
+              1.413663
+            ],
+            [
+              103.912208,
+              1.413663
+            ],
+            [
+              103.912209,
+              1.413735
+            ],
+            [
+              103.912126,
+              1.413735
+            ],
+            [
+              103.912126,
+              1.413766
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "name": "toilet",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "toilet",
+        "id": "relation02",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.91178232944797,
+              1.413814
+            ],
+            [
+              103.911834,
+              1.413813
+            ],
+            [
+              103.911835,
+              1.413771
+            ],
+            [
+              103.911794,
+              1.413771
+            ],
+            [
+              103.91178232944797,
+              1.413814
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR201",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 6,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr201",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911965,
+              1.41366
+            ],
+            [
+              103.911965,
+              1.413618
+            ],
+            [
+              103.911985,
+              1.413618
+            ],
+            [
+              103.911985,
+              1.41366
+            ],
+            [
+              103.911965,
+              1.41366
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "stairs": "yes",
+        "name": "staircase",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "staircase02",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911825,
+              1.413658
+            ],
+            [
+              103.911887,
+              1.413658
+            ],
+            [
+              103.911886,
+              1.413639
+            ],
+            [
+              103.911848,
+              1.413639
+            ],
+            [
+              103.911857,
+              1.413608
+            ],
+            [
+              103.911886,
+              1.413608
+            ],
+            [
+              103.911886,
+              1.413589
+            ],
+            [
+              103.911843,
+              1.413589
+            ],
+            [
+              103.911825,
+              1.413658
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR204",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 10,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr204",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911942,
+              1.413586
+            ],
+            [
+              103.911985,
+              1.413585
+            ],
+            [
+              103.911985,
+              1.413556
+            ],
+            [
+              103.911952,
+              1.413557
+            ],
+            [
+              103.911942,
+              1.413586
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "name": "lift lobby",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "lobby",
+        "id": "relation03",
+        "campus": "East",
+        "elevator": "yes"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911825,
+              1.413736
+            ],
+            [
+              103.911888,
+              1.413736
+            ],
+            [
+              103.911888,
+              1.41371
+            ],
+            [
+              103.91191,
+              1.41371
+            ],
+            [
+              103.91191,
+              1.413693
+            ],
+            [
+              103.91191,
+              1.413675
+            ],
+            [
+              103.911887,
+              1.413675
+            ],
+            [
+              103.911887,
+              1.413658
+            ],
+            [
+              103.911825,
+              1.413658
+            ],
+            [
+              103.911825,
+              1.413736
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "name": "lobby",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "area02",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911891,
+              1.413887
+            ],
+            [
+              103.912134,
+              1.413886
+            ],
+            [
+              103.91213383819088,
+              1.413809162065123
+            ],
+            [
+              103.912126,
+              1.413809
+            ],
+            [
+              103.9121260058281,
+              1.413767
+            ],
+            [
+              103.911986,
+              1.413766
+            ],
+            [
+              103.91198500582975,
+              1.413660167587018
+            ],
+            [
+              103.911942,
+              1.41366
+            ],
+            [
+              103.911942,
+              1.413586
+            ],
+            [
+              103.911897,
+              1.413586
+            ],
+            [
+              103.91189600582804,
+              1.4135893406959597
+            ],
+            [
+              103.911886,
+              1.413589
+            ],
+            [
+              103.91188700582798,
+              1.4136746703479728
+            ],
+            [
+              103.91191,
+              1.413675
+            ],
+            [
+              103.91191,
+              1.41371
+            ],
+            [
+              103.911888,
+              1.41371
+            ],
+            [
+              103.91189,
+              1.413812
+            ],
+            [
+              103.91178267055209,
+              1.4138141675870037
+            ],
+            [
+              103.911779,
+              1.413826
+            ],
+            [
+              103.91177900582804,
+              1.413842340695789
+            ],
+            [
+              103.911826,
+              1.413841
+            ],
+            [
+              103.911826,
+              1.413844
+            ],
+            [
+              103.9118911676388,
+              1.4138426703479017
+            ],
+            [
+              103.911891,
+              1.413887
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "usage": "public",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": "Mo-Sa 08:00-20:00, Su 09:00-19:00",
+        "name": "Pantry",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "wheelchair accessible",
+        "indoor": "0.5",
+        "stroke-opacity": "1",
+        "amenities": [
+          "coffee_machine",
+          "snacks"
+        ],
+        "booking": "not required",
+        "type": "multipolygon",
+        "room": "pantry",
+        "id": "shop01",
+        "category": "relation0",
+        "campus": "F&B"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.91196032944798,
+              1.4135561675869897
+            ],
+            [
+              103.911985,
+              1.413556
+            ],
+            [
+              103.911985,
+              1.413532
+            ],
+            [
+              103.91196132944792,
+              1.413532167587018
+            ],
+            [
+              103.91196032944798,
+              1.4135561675869897
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR203",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 10,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr203",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911942,
+              1.413618
+            ],
+            [
+              103.911985,
+              1.413618
+            ],
+            [
+              103.911985,
+              1.413585
+            ],
+            [
+              103.911942,
+              1.413586
+            ],
+            [
+              103.911942,
+              1.413618
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR210",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 10,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr210",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911857,
+              1.413537
+            ],
+            [
+              103.911906,
+              1.41356
+            ],
+            [
+              103.911916,
+              1.413532
+            ],
+            [
+              103.91186567055203,
+              1.4135071675869897
+            ],
+            [
+              103.911857,
+              1.413537
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "name": "toilet",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "toilet",
+        "id": "relation01",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911826,
+              1.413887
+            ],
+            [
+              103.911826,
+              1.413844
+            ],
+            [
+              103.911891,
+              1.413843
+            ],
+            [
+              103.911891,
+              1.413887
+            ],
+            [
+              103.911826,
+              1.413887
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "name": "outline",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "walls",
+        "stroke-opacity": "1",
+        "type": "",
+        "room": "shop",
+        "id": "outline0",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            103.911779,
+            1.413887
+          ],
+          [
+            103.912189,
+            1.413887
+          ],
+          [
+            103.912301,
+            1.413488
+          ],
+          [
+            103.912298,
+            1.413438
+          ],
+          [
+            103.911884,
+            1.413438
+          ],
+          [
+            103.911779,
+            1.413827
+          ],
+          [
+            103.911779,
+            1.413887
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR206",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 8,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr206",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911962,
+              1.413489
+            ],
+            [
+              103.911984,
+              1.413489
+            ],
+            [
+              103.911984,
+              1.413438
+            ],
+            [
+              103.911962,
+              1.413438
+            ],
+            [
+              103.911962,
+              1.413489
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR209",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 12,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr209",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.91186532944627,
+              1.413507
+            ],
+            [
+              103.911916,
+              1.413532
+            ],
+            [
+              103.911927,
+              1.413507
+            ],
+            [
+              103.911873,
+              1.413479
+            ],
+            [
+              103.91186532944627,
+              1.413507
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "cafe@university.edu",
+        "usage": "public",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": "Mo-Sa 08:00-20:00, Su 09:00-19:00",
+        "name": "Foogle",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "coffee_machine",
+          "snacks"
+        ],
+        "booking": "not required",
+        "capacity": 50,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "relation001",
+        "category": "F&B",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.912126,
+              1.413796
+            ],
+            [
+              103.91212633527607,
+              1.413735005521881
+            ],
+            [
+              103.91221,
+              1.413735
+            ],
+            [
+              103.91221,
+              1.41377
+            ],
+            [
+              103.912222,
+              1.413769
+            ],
+            [
+              103.912222,
+              1.413792
+            ],
+            [
+              103.912211,
+              1.413808
+            ],
+            [
+              103.912126,
+              1.413809
+            ],
+            [
+              103.912126,
+              1.413796
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "name": "staircase",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "staircase03",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.912298,
+              1.413499
+            ],
+            [
+              103.912249,
+              1.413499
+            ],
+            [
+              103.912249,
+              1.413438
+            ],
+            [
+              103.91229850874132,
+              1.4134378324129961
+            ],
+            [
+              103.912301,
+              1.413488
+            ],
+            [
+              103.912298,
+              1.413499
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "medical@university.edu",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": "Mo-Sa 08:00-20:00, Su 09:00-19:00",
+        "name": "sick bay",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "medical",
+        "id": "services00",
+        "category": "services",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.9122,
+              1.413468
+            ],
+            [
+              103.912199,
+              1.413438
+            ],
+            [
+              103.912152,
+              1.413438
+            ],
+            [
+              103.912152,
+              1.413468
+            ],
+            [
+              103.9122,
+              1.413468
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR205",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 8,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr205",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911985,
+              1.413532
+            ],
+            [
+              103.911984,
+              1.413489
+            ],
+            [
+              103.911962,
+              1.413489
+            ],
+            [
+              103.911957,
+              1.413532
+            ],
+            [
+              103.911985,
+              1.413532
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR202",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 6,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr202",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911942,
+              1.413618
+            ],
+            [
+              103.911965,
+              1.413618
+            ],
+            [
+              103.911965,
+              1.41366
+            ],
+            [
+              103.911942,
+              1.41366
+            ],
+            [
+              103.911942,
+              1.413618
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "stairs": "yes",
+        "name": "staircase",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "staircase01",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911779,
+              1.413887
+            ],
+            [
+              103.911779,
+              1.413842
+            ],
+            [
+              103.911826,
+              1.413841
+            ],
+            [
+              103.911826,
+              1.413887
+            ],
+            [
+              103.911779,
+              1.413887
+            ]
+          ],
+          [
+            [
+              103.911793,
+              1.413875
+            ],
+            [
+              103.911809,
+              1.413875
+            ],
+            [
+              103.911809,
+              1.413852
+            ],
+            [
+              103.911793,
+              1.413852
+            ],
+            [
+              103.911793,
+              1.413875
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR208",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 12,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr208",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911873,
+              1.413479
+            ],
+            [
+              103.911927,
+              1.413507
+            ],
+            [
+              103.91193867055215,
+              1.4134793406960307
+            ],
+            [
+              103.91188083819088,
+              1.4134498379342233
+            ],
+            [
+              103.911873,
+              1.413479
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "name": "Fire Fighting lobby",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "elevator": "yes",
+        "accessibility": "wheelchair",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "lobby",
+        "id": "relation06",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.91224894072735,
+              1.4134991053716135
+            ],
+            [
+              103.91224894072735,
+              1.4134379360967557
+            ],
+            [
+              103.9121991522237,
+              1.4134379360967557
+            ],
+            [
+              103.91219999041243,
+              1.4134989377848797
+            ],
+            [
+              103.91224894072735,
+              1.4134991053716135
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "1",
+        "opening_hours": null,
+        "name": "MR207",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": [
+          "projector",
+          "whiteboard"
+        ],
+        "booking": "required",
+        "capacity": 8,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr207",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              103.911939,
+              1.413479
+            ],
+            [
+              103.911939,
+              1.413438
+            ],
+            [
+              103.911914,
+              1.413438
+            ],
+            [
+              103.911899,
+              1.413438
+            ],
+            [
+              103.911891,
+              1.413438
+            ],
+            [
+              103.911884,
+              1.413438
+            ],
+            [
+              103.91188083236113,
+              1.41345
+            ],
+            [
+              103.911917,
+              1.413468
+            ],
+            [
+              103.911939,
+              1.413479
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "toilet",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "toilet",
+        "id": "relation22",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.91178384401893, 1.4138133296520699],
+            [103.911834, 1.413813],
+            [103.911835, 1.413771],
+            [103.91179534110411, 1.4137708324130247],
+            [103.91178384401893, 1.4138133296520699]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "administration office",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "area22",
+        "category": "administration",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911964, 1.413797832412982],
+            [103.9119918265331, 1.4137979999999575],
+            [103.91199216180917, 1.4137946648260065],
+            [103.912082, 1.4137948324129819],
+            [103.91208166472398, 1.4137698379348345],
+            [103.91220983819095, 1.4137695027608979],
+            [103.912195, 1.413818832412982],
+            [103.912134, 1.413818832412982],
+            [103.91213481487691, 1.4138873351738797],
+            [103.911907, 1.4138868324129819],
+            [103.91190632944797, 1.4137061675869327],
+            [103.91191683236114, 1.413705994477238],
+            [103.91191632944798, 1.4136816648259924],
+            [103.91190616180917, 1.413681832412982],
+            [103.911907, 1.4135598324129819],
+            [103.911934, 1.4135598324129819],
+            [103.911934, 1.413533832412982],
+            [103.911907, 1.413533832412982],
+            [103.911907, 1.4135168324129819],
+            [103.911963, 1.4135168324129819],
+            [103.911963, 1.413544832412982],
+            [103.91199183819094, 1.4135455027609973],
+            [103.911992, 1.413737832412982],
+            [103.911964, 1.413737832412982],
+            [103.911964, 1.413797832412982]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "marker01","name": "MarkerLine" },
+      "geometry": {
+        "coordinates": [
+          [103.912135, 1.413955],
+          [103.912125, 1.413343]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "marker02","name": "MarkerLine" },
+      "geometry": {
+        "coordinates": [
+          [103.912051, 1.413954],
+          [103.912047, 1.413354]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "marker03","name": "MarkerLine" },
+      "geometry": {
+        "coordinates": [
+          [103.911882, 1.413944],
+          [103.911884, 1.413377]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "toilet",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "toilet",
+        "id": "relation25",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.912253, 1.413499],
+            [103.912298, 1.413499],
+            [103.912285, 1.413546],
+            [103.91225333527437, 1.4135458324130246],
+            [103.912253, 1.413499]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "MR217",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["projector", "whiteboard"],
+        "booking": "required",
+        "capacity": 4,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr217",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911878, 1.413465],
+            [103.911885, 1.413438],
+            [103.911914, 1.413438],
+            [103.911913, 1.413465],
+            [103.911878, 1.413465]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "Conference Room",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["projecter"],
+        "booking": "required",
+        "capacity": 10,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "cr01",
+        "category": "administration",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911992, 1.413492],
+            [103.91199167055208, 1.413545],
+            [103.911963, 1.413545],
+            [103.91196283236279, 1.413492167587018],
+            [103.911992, 1.413492]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "Lounge",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "area23",
+        "category": "administration",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.91184967055209, 1.4135725027609263],
+            [103.91190599999841, 1.4135719999991758],
+            [103.911906, 1.413492],
+            [103.911992, 1.413492],
+            [103.911992, 1.413465],
+            [103.911878, 1.413465],
+            [103.91184967055209, 1.4135725027609263]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "staircase",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "staircase23",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.912298, 1.413499],
+            [103.912253, 1.413499],
+            [103.912253, 1.413438],
+            [103.912298, 1.413437],
+            [103.912301, 1.413488],
+            [103.912298, 1.413499]
+          ],
+          [
+            [103.912269, 1.413481],
+            [103.912286, 1.413481],
+            [103.912285, 1.413452],
+            [103.912269, 1.413452],
+            [103.912269, 1.413481]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "MarkerLine" },
+      "geometry": {
+        "coordinates": [
+          [103.911967, 1.413945],
+          [103.911963, 1.413365]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "MR218",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["projector", "whiteboard"],
+        "booking": "required",
+        "capacity": 9,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr218",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.9118400058281, 1.413608167587018],
+            [103.91188750291487, 1.4136078379357866],
+            [103.911887, 1.413572],
+            [103.91184950291493, 1.4135725027610115],
+            [103.9118400058281, 1.413608167587018]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "MarkerLine" },
+      "geometry": {
+        "coordinates": [
+          [103.91173, 1.413771],
+          [103.91226, 1.413769]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "Printing",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["projector", "whiteboard"],
+        "room": "shop",
+        "id": "print02",
+        "category": "services",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911937, 1.413517],
+            [103.911937, 1.413492],
+            [103.91196249708518, 1.4134923351740218],
+            [103.911963, 1.413517],
+            [103.911937, 1.413517]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "lift lobby",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "elevator": "yes",
+        "accessibility": "wheelchair",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "lobby",
+        "id": "relation24",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911825, 1.413736],
+            [103.911889, 1.413735],
+            [103.911888, 1.413658],
+            [103.911825, 1.413658],
+            [103.911825, 1.413736]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "MarkerLine" },
+      "geometry": {
+        "coordinates": [
+          [103.911749, 1.413658],
+          [103.912302, 1.413658]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "corridor",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "corridor",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "area26",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911992, 1.413438],
+            [103.911992, 1.413505],
+            [103.912009, 1.413505],
+            [103.912009, 1.413493],
+            [103.912029, 1.413493],
+            [103.912029, 1.41348],
+            [103.912158, 1.41348],
+            [103.912157, 1.413438],
+            [103.911992, 1.413438]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "Office",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "office02",
+        "category": "administration",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911907, 1.41356],
+            [103.911907, 1.413534],
+            [103.911934, 1.413534],
+            [103.911934, 1.41356],
+            [103.911907, 1.41356]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "Atrium",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "area21",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.912285, 1.4135461731089984],
+            [103.912252, 1.413661],
+            [103.912208, 1.41366],
+            [103.91220983819089, 1.4137691675870039],
+            [103.91199216763721, 1.4137696703487401],
+            [103.91199183818924, 1.413505],
+            [103.912009, 1.413505],
+            [103.912009, 1.413493],
+            [103.912029, 1.413493],
+            [103.912029, 1.41348],
+            [103.912158, 1.41348],
+            [103.912158, 1.413545],
+            [103.912285, 1.4135461731089984]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "usage": "public",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": "Mo-Sa 08:00-20:00, Su 09:00-19:00",
+        "name": "Pantry",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "wheelchair accessible",
+        "indoor": "0.5",
+        "stroke-opacity": "1",
+        "amenities": ["coffee_machine", "snacks"],
+        "booking": "not required",
+        "type": "multipolygon",
+        "room": "pantry",
+        "id": "shop02",
+        "category": "relation211",
+        "campus": "F&B"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911964, 1.41377],
+            [103.911992, 1.41377],
+            [103.911992, 1.413798],
+            [103.911964, 1.413798],
+            [103.911964, 1.41377]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "MarkerLine" },
+      "geometry": {
+        "coordinates": [
+          [103.911784, 1.413545],
+          [103.912338, 1.413546]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "MR216",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["projector", "whiteboard"],
+        "booking": "required",
+        "capacity": 4,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr216",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911913, 1.413465],
+            [103.911914, 1.413438],
+            [103.911942, 1.413438],
+            [103.911942, 1.413465],
+            [103.911913, 1.413465]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "Fire Fighting lobby",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "elevator": "yes",
+        "accessibility": "wheelchair",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "lobby",
+        "id": "relation23",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.912253, 1.413499],
+            [103.912253, 1.413438],
+            [103.912203, 1.413438],
+            [103.912204, 1.413499],
+            [103.912253, 1.413499]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "MR215",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["projector", "whiteboard"],
+        "booking": "required",
+        "capacity": 4,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr214",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911968, 1.413465],
+            [103.911968, 1.413438],
+            [103.911992, 1.413438],
+            [103.911992, 1.413465],
+            [103.911968, 1.413465]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "toilet",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "toilet",
+        "id": "relation21",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911826, 1.413887],
+            [103.911826, 1.413844],
+            [103.91189016180911, 1.4138435027609404],
+            [103.911891, 1.413887],
+            [103.911826, 1.413887]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "MarkerLine" },
+      "geometry": {
+        "coordinates": [
+          [103.912213, 1.413953],
+          [103.912203, 1.413338]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "Office",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "office01",
+        "category": "administration",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.912055, 1.413795],
+            [103.912055, 1.413769837935744],
+            [103.912082, 1.41377],
+            [103.912082, 1.413795],
+            [103.912055, 1.413795]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "corridor",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "corridor",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "area25",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.912253, 1.413546],
+            [103.912253, 1.413499],
+            [103.91220417346531, 1.4134991675869897],
+            [103.912203, 1.413438],
+            [103.91215734110416, 1.4134383351740503],
+            [103.91215767055208, 1.4134548324130103],
+            [103.912184, 1.413455],
+            [103.912184, 1.413514],
+            [103.912232, 1.413514],
+            [103.91223250291482, 1.4135456703480012],
+            [103.912253, 1.413546]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "corridor",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "corridor",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "id": "area24",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911891, 1.413887],
+            [103.911887, 1.413572],
+            [103.911906, 1.413572],
+            [103.911907, 1.413887],
+            [103.911891, 1.413887]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "stairs": "yes",
+        "name": "staircase",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "staircase22",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.91182533527595, 1.4136578379349338],
+            [103.91188816763716, 1.4136576703479442],
+            [103.91188767055372, 1.413634],
+            [103.911833, 1.413634],
+            [103.91182533527595, 1.4136578379349338]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "MR213",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["whiteboard"],
+        "booking": "not required",
+        "capacity": 4,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr213",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911906, 1.413517],
+            [103.911906, 1.413492],
+            [103.911937, 1.413492],
+            [103.911937, 1.413517],
+            [103.911906, 1.413517]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "MR215",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["projector", "whiteboard"],
+        "booking": "required",
+        "capacity": 4,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr215",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911942, 1.413465],
+            [103.911942, 1.413438],
+            [103.911968, 1.413438],
+            [103.911968, 1.413465],
+            [103.911942, 1.413465]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "MR212",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["projector", "whiteboard"],
+        "booking": "required",
+        "capacity": 6,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "mr212",
+        "category": "meeting_room",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911964, 1.41377],
+            [103.911992, 1.41376967034793],
+            [103.911992, 1.413738],
+            [103.911964, 1.413738],
+            [103.911964, 1.41377]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "Quiet Room",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["monitor"],
+        "booking": "not required",
+        "capacity": 6,
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "qr01",
+        "category": "administration",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.911992, 1.413795],
+            [103.91199183236114, 1.4137698379357582],
+            [103.91202, 1.41377],
+            [103.91202, 1.413795],
+            [103.911992, 1.413795]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "contact": "room-reservations@university.edu",
+        "usage": "staff_only",
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "opening_hours": null,
+        "name": "Printing",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": "wheelchair accessible",
+        "stroke-width": "0.5",
+        "indoor": "room",
+        "stroke-opacity": "1",
+        "amenities": ["projector", "whiteboard"],
+        "room": "shop",
+        "id": "print01",
+        "category": "services",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.91202, 1.413795],
+            [103.91202016763721, 1.4137698379357582],
+            [103.912055, 1.41377],
+            [103.912055, 1.413795],
+            [103.91202, 1.413795]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "name": "staircase",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "staircase24",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.912085, 1.41356],
+            [103.912055, 1.413529],
+            [103.912075, 1.41351],
+            [103.912105, 1.413543],
+            [103.912085, 1.41356]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill-opacity": "1",
+        "fill": "#ffffff",
+        "level": "2",
+        "stairs": "yes",
+        "name": "staircase",
+        "colour": "#00983c",
+        "block": "Block E1",
+        "area": "Punggol",
+        "accessibility": null,
+        "stroke-width": "0.5",
+        "indoor": "area",
+        "stroke-opacity": "1",
+        "type": "multipolygon",
+        "room": "shop",
+        "id": "staircase21",
+        "campus": "East"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [103.91178000582809, 1.4138871675870037],
+            [103.9117801734669, 1.4138413296520842],
+            [103.911826, 1.413841],
+            [103.911826, 1.413887],
+            [103.91178000582809, 1.4138871675870037]
+          ],
+          [
+            [103.911793, 1.413875],
+            [103.911809, 1.413875],
+            [103.911809, 1.413852],
+            [103.911793, 1.413852],
+            [103.911793, 1.413875]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    }
+  
+  ]
+}

@@ -8,12 +8,8 @@ import centroid from '@turf/centroid';
 // Import Mapbox Gl JS
 import mapboxgl, { LngLatLike } from 'mapbox-gl';
 
-// JSON Data
-import caserne from '../../_data/caserne.json';
-import garedelest from '../../_data/gare-de-l-est.json';
-import gjson from '../../_data/geojson.json';
-import grandPlace from '../../_data/grand-place.json';
-import punggol from '../../_data/punggol.json';
+import { GRAPHQL_API_URL } from '../../_api/shared';
+import { COORDINATES_QUERY } from '../../_graphql/features';
 import { addIndoorTo, IndoorControl, IndoorMap, MapboxMapWithIndoor } from '../../_indoormap';
 
 // Mapbox CSS
@@ -24,66 +20,90 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 // Custom CSS
 import styles from '../../_css/Mapbox.module.scss';
 
+interface FeatureProperties {
+    id: string;
+    contact: string;
+    usage: string;
+    fillOpacity: number;
+    fill: string;
+    level: string;
+    opening_hours?: string | null;
+    name: string;
+    colour: string;
+    block: string;
+    area: string;
+    accessibility: string;
+    strokeWidth: number;
+    indoor: string;
+    strokeOpacity: number;
+    amenities: string[];
+    booking: string;
+    capacity: number;
+    room: string;
+    category: string;
+    campus: string;
+}
+
+interface Coordinate {
+    geometry: {
+        coordinates: number[][][];
+        type: string;
+    };
+    properties: FeatureProperties;
+}
+
 const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+const fetchGeoJSONData = async () => {
+    const response = await fetch(`${GRAPHQL_API_URL}/api/graphql`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            query: COORDINATES_QUERY,
+        }),
+    });
+    const data = await response.json();
+    return data.data.Coordinates.features;
+};
 
 const Mapbox = () => {
     const mapContainerRef = useRef(null);
     const mapRef = useRef(null); // To store the map instance
-    const garedelestgeojson: any = garedelest.geojson;
-    const casernegeojson: any = caserne.geojson;
-    const grandPlacegeojson: any = grandPlace.geojson;
-    const punggolgeojson: any = punggol.geojson;
     const [indoorMapEnabled, setIndoorMapEnabled] = useState(false);
-    const [geojsonMaps, setGeojsonMaps] = useState([
-        { data: garedelestgeojson, center: [2.3592843, 48.8767904], name: 'garedelest' },
-        { data: casernegeojson, center: [5.723078, 45.183754], name: 'caserne' },
-        {
-            data: grandPlacegeojson,
-            center: [5.732179, 45.157955],
-            name: 'grandPlace',
-            defaultLevel: 1,
-        },
-        { data: punggolgeojson, center: [103.911825, 1.413736], name: 'punggol' },
-    ]);
-    const [isMenuOpen, setMenuOpen] = useState(false);
+    const [geojsonMaps, setGeojsonMaps] = useState(null);
+    // const [isMenuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
-        mapboxgl.accessToken = mapboxToken;
+        const initializeMap = async () => {
+            mapboxgl.accessToken = mapboxToken;
 
-        const map = new mapboxgl.Map({
-            container: mapContainerRef.current,
-            style: 'mapbox://styles/mapbox/streets-v10',
-            center: [103.91289, 1.413576],
-            zoom: 17,
-        }) as MapboxMapWithIndoor;
+            const map = new mapboxgl.Map({
+                container: mapContainerRef.current,
+                style: 'mapbox://styles/mapbox/streets-v10',
+                center: [103.91289, 1.413576],
+                zoom: 17,
+            }) as MapboxMapWithIndoor;
 
-        mapRef.current = map; // Assign the map instance to the ref
+            mapRef.current = map; // Assign the map instance to the ref
+            const fetchedData = await fetchGeoJSONData();
+            const transformedData = {
+                type: 'FeatureCollection',
+                features: fetchedData.map((doc: any) => ({
+                    ...doc,
+                    type: 'Feature',
+                })),
+            };
 
-        // Add controls to the map
-        map.addControl(new mapboxgl.FullscreenControl());
-        map.addControl(new mapboxgl.GeolocateControl());
+            setGeojsonMaps(transformedData);
 
-        // Load and add GeoJSON as a source and layer
-        // map.on('load', () => {
-        //     map.addSource('3d-building', {
-        //         type: 'geojson',
-        //         data: geojson,
-        //     });
+            // Add controls to the map
+            map.addControl(new mapboxgl.FullscreenControl());
+            map.addControl(new mapboxgl.GeolocateControl());
 
-        //     map.addLayer({
-        //         id: 'room',
-        //         type: 'fill-extrusion',
-        //         source: '3d-building',
-        //         paint: {
-        //             'fill-extrusion-color': ['get', 'color'],
-        //             'fill-extrusion-height': ['get', 'height'],
-        //             'fill-extrusion-base': ['get', 'base_height'],
-        //             'fill-extrusion-opacity': 0.5,
-        //         },
-        //     });
-        // });
-
-        return () => map.remove(); // Cleanup on unmount
+            return () => map.remove(); // Cleanup on unmount
+        };
+        initializeMap();
     }, []);
 
     const toggleIndoorMap = () => {
@@ -101,24 +121,22 @@ const Mapbox = () => {
             // geojsonMaps.forEach(({ data, center }) => createMenuButton(data, center));
             const beforeLayerId = 'housenum-label';
             const layersToHide = ['housenum-label'];
-            geojsonMaps.forEach(({ data, defaultLevel }) => {
-                // Create indoor map from imported geojson and options
-                const indoorMap = IndoorMap.fromGeojson(data, {
-                    beforeLayerId,
-                    layersToHide,
-                    defaultLevel,
-                });
-
-                // Add map to the indoor handler
-                mapRef.current.indoor.addMap(indoorMap);
+            const indoorMap = IndoorMap.fromGeojson(geojsonMaps, {
+                beforeLayerId,
+                layersToHide,
+                defaultLevel: 1,
             });
+            mapRef.current.indoor.addMap(indoorMap);
+
+            // Add map to the indoor handler
+            // mapRef.current.indoor.addMap(indoorMap);
 
             const customGeocoder = new MapboxGeocoder({
                 localGeocoderOnly: true,
                 localGeocoder: (query: string): Result[] => {
                     const matchingFeatures = [];
-                    for (let i = 0; i < punggolgeojson.features.length; i++) {
-                        const feature = punggolgeojson.features[i];
+                    for (let i = 0; i < geojsonMaps.features.length; i++) {
+                        const feature = geojsonMaps.features[i];
                         if (
                             feature.properties.name &&
                             feature.properties.name.toLowerCase().search(query.toLowerCase()) !== -1
@@ -149,51 +167,23 @@ const Mapbox = () => {
         }
     };
 
-    // const flyToLocation = center => {
-    //     mapRef.current.flyTo({
-    //         center: center ? center : [2.3592843, 48.8767904],
-    //         zoom: 18,
-    //         speed: 3.2,
-    //         curve: 1,
-    //         easing: t => t,
-    //     });
-    // };
-
     const flyToLocation = center => {
         mapRef.current.flyTo({ center, zoom: 22, duration: 2000 });
     };
-
-    // const menuContainer = document.createElement('div');
-    // // Create a list element to hold the buttons
-    // const menuList = document.createElement('ul');
-    // menuList.className = 'menu-list';
-    // menuContainer.appendChild(menuList);
-
-    // // Function to create menu buttons
-    // function createMenuButton(mapPath: string, center: LngLatLike) {
-    //     const listItem = document.createElement('li');
-    //     const btn = document.createElement('button');
-    //     btn.innerHTML = mapPath.toString().replace(/^.*[/]/, '');
-    //     btn.addEventListener('click', () => {
-    //         mapRef.current.flyTo({ center, zoom: 18, duration: 2000 });
-    //     });
-    //     listItem.appendChild(btn);
-    //     menuList.appendChild(listItem);
-    // }
 
     return (
         <div>
             <button
                 className={styles.normal}
-                onClick={() => flyToLocation([2.3592843, 48.8767904])}
-                style={{ position: 'absolute', top: 60, left: 20 }}
+                onClick={() => flyToLocation([103.911942, 1.413465])}
+                style={{ position: 'relative', top: 20, left: 70 }}
             >
                 Fly
             </button>
             <button
                 className={styles.normal}
                 onClick={toggleIndoorMap}
-                style={{ position: 'absolute', top: 60, left: 100 }}
+                style={{ position: 'relative', top: 20, left: 100 }}
             >
                 {indoorMapEnabled ? 'Disable Indoor Map' : 'Enable Indoor Map'}
             </button>
@@ -204,7 +194,7 @@ const Mapbox = () => {
                     ref={mapContainerRef}
                     style={{ height: '90vh', width: '90vw' }}
                 >
-                    <div className={styles.dropdown}>
+                    {/* <div className={styles.dropdown}>
                         <button
                             className={styles.dropbtn}
                             onClick={() => setMenuOpen(!isMenuOpen)}
@@ -212,8 +202,8 @@ const Mapbox = () => {
                         >
                             Locations <i className="fa fa-caret-down"></i>
                         </button>
-                    </div>
-                    <div
+                    </div> */}
+                    {/* <div
                         className={`${styles.dropdownContent} ${isMenuOpen ? styles.show : ''}`}
                         style={{ zIndex: 1000 }}
                     >
@@ -230,7 +220,7 @@ const Mapbox = () => {
                                 Fly to {item.name}
                             </button>
                         ))}
-                    </div>
+                    </div> */}
                     {/* <button
                         className={styles.dropbtn}
                         onClick={() => setMenuOpen(!isMenuOpen)}

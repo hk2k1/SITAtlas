@@ -2,17 +2,23 @@ import type { CollectionConfig } from 'payload/types';
 
 export const Coordinates: CollectionConfig = {
     slug: 'coordinates',
+    admin: {
+        useAsTitle: 'FeatureID',
+    },
+    access: {
+        read: () => true,
+    },
     fields: [
         {
-            name: 'featureId',
-            type: 'text',
-            required: true,
+            name: 'FeatureID',
+            type: 'relationship',
+            relationTo: 'features',
             label: 'Feature ID',
         },
         {
             name: 'geometry',
             type: 'json',
-            required: true,
+            required: false,
             label: 'Geometry',
         },
     ],

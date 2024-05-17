@@ -2,31 +2,43 @@ import type { CollectionConfig } from 'payload/types';
 
 export const Features: CollectionConfig = {
     slug: 'features',
+    admin: {
+        useAsTitle: 'id',
+    },
+    access: {
+        read: () => true,
+    },
     fields: [
+        {
+            name: 'id',
+            type: 'text',
+            required: true,
+            unique: true,
+        },
         {
             name: 'contact',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'usage',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'fillOpacity',
-            type: 'number',
-            required: true,
+            type: 'text',
+            required: false,
         },
         {
             name: 'fill',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'level',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'opening_hours',
@@ -35,87 +47,105 @@ export const Features: CollectionConfig = {
         {
             name: 'name',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'colour',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'block',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'area',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'accessibility',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'strokeWidth',
-            type: 'number',
-            required: true,
+            type: 'text',
+            required: false,
         },
         {
             name: 'indoor',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'strokeOpacity',
-            type: 'number',
-            required: true,
+            type: 'text',
+            required: false,
         },
         {
             name: 'amenities',
-            type: 'array',
-            fields: [
-                {
-                    name: 'amenity',
-                    type: 'text',
-                },
-            ],
+            type: 'select', // required
+            hasMany: true,
+            admin: {
+                isClearable: true,
+                isSortable: true, // use mouse to drag and drop different values, and sort them according to your choice
+            },
+            options: ['projector', 'whiteboard', 'snacks', 'coffee machine', 'monitor'],
+            //     {
+            //         label: 'projector',
+            //         value: 'projector',
+            //     },
+            //     {
+            //         label: 'whiteboard',
+            //         value: 'whiteboard',
+            //     },
+            //     {
+            //         label: 'snacks',
+            //         value: 'snacks',
+            //     },
+            //     {
+            //         label: 'coffee machine',
+            //         value: 'coffee_machine',
+            //     },
+            //     {
+            //         label: 'monitor',
+            //         value: 'monitor',
+            //     },
+            // ],
+            required: false,
         },
         {
             name: 'booking',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'capacity',
             type: 'number',
-            required: true,
+            defaultValue: 0,
+            required: false,
         },
         {
             name: 'type',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'room',
             type: 'text',
-            required: true,
-        },
-        {
-            name: 'id',
-            type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'category',
             type: 'text',
-            required: true,
+            required: false,
         },
         {
             name: 'campus',
             type: 'text',
-            required: true,
+            required: false,
         },
     ],
 };

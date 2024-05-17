@@ -29,9 +29,9 @@ export const ProjectHero: React.FC<{
                             {createdAt && formatDateTime(createdAt)}
                             &nbsp; &mdash; &nbsp;
                             {categories?.map((category, index) => {
-                                const { title: categoryTitle } = category;
+                                // const { title: categoryTitle } = category;
 
-                                const titleToUse = categoryTitle || 'Untitled category';
+                                const titleToUse = title || 'Untitled category';
 
                                 const isLast = index === categories.length - 1;
 

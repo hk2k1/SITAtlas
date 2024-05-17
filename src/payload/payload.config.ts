@@ -86,6 +86,7 @@ export default buildConfig({
         outputFile: path.resolve(__dirname, 'payload-types.ts'),
     },
     graphQL: {
+        disablePlaygroundInProduction: false,
         schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
     },
     cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
