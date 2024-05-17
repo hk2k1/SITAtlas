@@ -4,9 +4,9 @@ import { draftMode } from 'next/headers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import rajPic from '../../../../public/assets/raj.jpg';
+import { staticHome } from '../../../payload/old_seed/home-static';
+
 import { Page } from '../../../payload/payload-types';
-import { staticHome } from '../../../payload/seed/home-static';
 import { fetchDoc } from '../../_api/fetchDoc';
 import { fetchDocs } from '../../_api/fetchDocs';
 import { Blocks } from '../../_components/Blocks';

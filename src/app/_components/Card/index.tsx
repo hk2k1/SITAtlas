@@ -51,9 +51,9 @@ export const Card: React.FC<{
                         {showCategories && hasCategories && (
                             <div>
                                 {categories?.map((category, index) => {
-                                    const { title: titleFromCategory } = category;
+                                    // const { title: titleFromCategory } = category;
 
-                                    const categoryTitle = titleFromCategory || 'Untitled category';
+                                    const categoryTitle = title || 'Untitled category';
 
                                     const isLast = index === categories.length - 1;
 

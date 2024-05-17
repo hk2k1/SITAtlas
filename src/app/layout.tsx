@@ -15,6 +15,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <html lang="en" suppressHydrationWarning>
             <head>
                 <InitTheme />
+                <meta
+                    name="viewport"
+                    content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+                ></meta>
                 <link rel="icon" href="/favicon.ico" sizes="32x32" />
                 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
                 {/* <link

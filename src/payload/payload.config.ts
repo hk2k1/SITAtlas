@@ -12,6 +12,8 @@ import { buildConfig } from 'payload/config';
 
 import Categories from './collections/Categories';
 import Comments from './collections/Comments';
+import { Coordinates } from './collections/Coordinates';
+import { Features } from './collections/Features';
 import { Media } from './collections/Media';
 import { Pages } from './collections/Pages';
 import { Posts } from './collections/Posts';
@@ -19,6 +21,7 @@ import { Projects } from './collections/Projects';
 import Users from './collections/Users';
 import BeforeDashboard from './components/BeforeDashboard';
 import BeforeLogin from './components/BeforeLogin';
+import CustomLogo from './components/CustomLogo';
 import { seed } from './endpoints/seed';
 import { Footer } from './globals/Footer';
 import { Header } from './globals/Header';
@@ -37,6 +40,9 @@ export default buildConfig({
         user: Users.slug,
         bundler: webpackBundler(),
         components: {
+            graphics: {
+                Logo: CustomLogo,
+            },
             // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
             // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
             beforeLogin: [BeforeLogin],
@@ -64,12 +70,23 @@ export default buildConfig({
         url: process.env.DATABASE_URI,
     }),
     serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
-    collections: [Pages, Posts, Projects, Media, Categories, Users, Comments],
+    collections: [
+        Pages,
+        Posts,
+        Projects,
+        Media,
+        Categories,
+        Users,
+        Comments,
+        Coordinates,
+        Features,
+    ],
     globals: [Settings, Header, Footer],
     typescript: {
         outputFile: path.resolve(__dirname, 'payload-types.ts'),
     },
     graphQL: {
+        disablePlaygroundInProduction: false,
         schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
     },
     cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),

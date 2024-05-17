@@ -4,14 +4,13 @@ const BeforeLogin: React.FC = () => {
     return (
         <div>
             <p>
-                <b>Welcome to your dashboard!</b>
-                {
-                    ' This is where site admins will log in to manage your website. Users will need to '
-                }
+                <b>Welcome to the dashboard!</b>
+                {' SITAtlas Login Page. '}
+                <br />
+                {' Users will need to '}
                 <a href={`${process.env.PAYLOAD_PUBLIC_SERVER_URL}/login`}>
-                    log in to the site instead
+                    this login page instead
                 </a>
-                {' to access their user account, comment history, and more.'}
             </p>
         </div>
     );
