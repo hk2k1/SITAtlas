@@ -4,7 +4,10 @@ import React from 'react';
 const CustomLogo: React.FC = () => {
     return (
         <div>
-            <img src="http://localhost:3000/assets/SITAtlas_logo_white.svg" alt="Payload" />
+            <img
+                src="https://raw.githubusercontent.com/hk2k1/portfolio/master/public/SITAtlas_named_color.svg"
+                alt="Payload"
+            />
         </div>
     );
 };

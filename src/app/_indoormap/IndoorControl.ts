@@ -8,7 +8,7 @@ import type { Level, MapGL, MapGLWithIndoor } from './Types';
  * @implements {IControl}
  */
 class IndoorControl {
-    _map?: MapGLWithIndoor;
+    _map?: MapGLWithIndoor | any;
     _indoor?: IndoorLayer;
     _indoorMap: IndoorMap | null;
 

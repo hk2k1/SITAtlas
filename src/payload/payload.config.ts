@@ -11,7 +11,7 @@ import path from 'path';
 import { buildConfig } from 'payload/config';
 
 import Categories from './collections/Categories';
-import Comments from './collections/Comments';
+import { Comments } from './collections/Comments';
 import { Coordinates } from './collections/Coordinates';
 import { Features } from './collections/Features';
 import { Media } from './collections/Media';

@@ -24,6 +24,7 @@
     "debug": "cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts nodemon --inspect"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-directions": "^4.3.1",
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
     "@payloadcms/bundler-webpack": "^1.0.6",
     "@payloadcms/db-mongodb": "^1.0.0",

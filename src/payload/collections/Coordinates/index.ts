@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload/types';
 
+import { admins } from '../../access/admins';
+
 export const Coordinates: CollectionConfig = {
     slug: 'coordinates',
     admin: {
@@ -7,6 +9,9 @@ export const Coordinates: CollectionConfig = {
     },
     access: {
         read: () => true,
+        update: admins,
+        create: admins,
+        delete: admins,
     },
     fields: [
         {

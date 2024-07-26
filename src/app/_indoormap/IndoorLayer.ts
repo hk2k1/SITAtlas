@@ -17,7 +17,7 @@ const SOURCE_ID = 'indoor';
  * @param {Map} map the Mapbox map
  */
 class IndoorLayer {
-    _map: MapGL;
+    _map: MapGL | any;
     _level: Level | null;
 
     _indoorMaps: IndoorMap[];

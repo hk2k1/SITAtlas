@@ -1,12 +1,18 @@
 import type { CollectionConfig } from 'payload/types';
 
+import { admins } from '../../access/admins';
+
 export const Features: CollectionConfig = {
     slug: 'features',
     admin: {
-        useAsTitle: 'id',
+        useAsTitle: 'name',
+        defaultColumns: ['name', 'level', 'campus', 'id '],
     },
     access: {
         read: () => true,
+        update: admins,
+        create: admins,
+        delete: admins,
     },
     fields: [
         {

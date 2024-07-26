@@ -1,0 +1,107 @@
+@use './queries.scss' as *;
+@use './colors.scss' as *;
+@use './type.scss' as *;
+@import "./theme.scss";
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 345px;
+  height: 100%;
+  background-color: var(--theme-elevation-50);
+  color: var(--theme-text);
+  box-shadow: 2px 0 5px var(--theme-elevation-200);
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 2;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-content {
+    padding: 20px;
+    overflow-y: auto;
+    height: 100%;
+    box-sizing: border-box;
+
+    h2 {
+      @extend %h2;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      // margin: 0 0 var(--base);
+
+      li {
+        margin-bottom: 5px;
+      }
+    }
+    .mapboxgl-ctrl {
+      clear: both;
+      pointer-events: auto;
+      transform: translate(0);
+      margin: 10px;
+
+      input {
+        font-size: 12px;
+        width: 100%;
+        border: 0;
+        background-color: transparent;
+        height: 40px;
+        margin: 0;
+        color: rgba(0, 0, 0, .5);
+        padding: 10px 40px 10px 30px !important;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+    
+  }
+
+
+  @include mid-break {
+    width: 100%;
+
+    .toggle-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 0 25px 25px 0;
+    }
+  }
+
+  .toggle-btn {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 40px;
+    height: 80px;
+    background-color: var(--theme-elevation-50);
+    border: none;
+    border-radius: 0 40px 40px 0;
+    box-shadow: 2px 0 5px var(--theme-elevation-200);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease;
+    z-index: 3;
+
+    &:hover {
+      background-color: var(--theme-elevation-100);
+    }
+
+    svg {
+      color: var(--theme-text);
+    }
+  }
+}

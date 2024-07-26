@@ -2,6 +2,7 @@
 
 // Import React JS
 import React, { useEffect, useRef, useState } from 'react';
+import * as MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 // Import Indoor Mapping Components
 import MapboxGeocoder, { Result } from '@mapbox/mapbox-gl-geocoder';
 import centroid from '@turf/centroid';
@@ -9,6 +10,7 @@ import centroid from '@turf/centroid';
 import mapboxgl, { LngLatLike } from 'mapbox-gl';
 
 import { GRAPHQL_API_URL } from '../../_api/shared';
+import Sidebar from '../../_components/Sidebar';
 import { COORDINATES_QUERY } from '../../_graphql/features';
 import { addIndoorTo, IndoorControl, IndoorMap, MapboxMapWithIndoor } from '../../_indoormap';
 
@@ -16,6 +18,8 @@ import { addIndoorTo, IndoorControl, IndoorMap, MapboxMapWithIndoor } from '../.
 // import 'mapbox-gl/dist/mapbox-gl.css';
 import '../../_css/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css';
+import '../../_css/Sidebar.scss';
 
 // Custom CSS
 import styles from '../../_css/Mapbox.module.scss';
@@ -73,6 +77,7 @@ const Mapbox = () => {
     const [indoorMapEnabled, setIndoorMapEnabled] = useState(false);
     const [geojsonMaps, setGeojsonMaps] = useState(null);
     // const [isMenuOpen, setMenuOpen] = useState(false);
+    const [locationInfo, setLocationInfo] = useState(null);
 
     useEffect(() => {
         const initializeMap = async () => {
@@ -84,6 +89,11 @@ const Mapbox = () => {
                 center: [103.91289, 1.413576],
                 zoom: 17,
             }) as MapboxMapWithIndoor;
+
+            map.setMaxBounds([
+                [103.53341384952012, 1.1613787806303861],
+                [104.13268465729226, 1.522317784758073],
+            ]);
 
             mapRef.current = map; // Assign the map instance to the ref
             const fetchedData = await fetchGeoJSONData();
@@ -110,6 +120,7 @@ const Mapbox = () => {
         if (indoorMapEnabled) {
             mapRef.current.indoor.removeMap();
             setIndoorMapEnabled(false);
+            window.location.reload();
         } else {
             addIndoorTo(mapRef.current);
 
@@ -151,24 +162,84 @@ const Mapbox = () => {
                 },
                 mapboxToken,
                 zoom: 22,
-                placeholder: 'Enter search e.g. Room',
+                placeholder: '      Enter search e.g. Room',
                 marker: true,
             });
             // An event listener is added to the customGeocoder object for the 'result' event.
             // When a search result is selected, if the result has a properties object and a level property, the indoor level of the map is set to the value of the level property.
             customGeocoder.on('result', (geocoder: any) => {
                 if (geocoder.result.properties && geocoder.result.properties.level) {
+                    // console.log(geocoder.result.properties.level);
                     mapRef.current.indoor.setLevel(parseInt(geocoder.result.properties.level));
+                    const properties = geocoder.result.properties;
+                    if (geocoder.result.properties) {
+                        const newLocationInfo = {
+                            name: geocoder.result.properties || 'Unknown Location',
+                            // campus: properties.campus || 'N/A',
+                            // area: properties.area || 'N/A',
+                            // level: properties.level ? parseInt(properties.level) : 'N/A',
+                            // description: properties.description || 'No description available.',
+                            // amenities: properties.amenities
+                            //     ? properties.amenities.split(',').map((a: string) => a.trim())
+                            //     : [],
+                        };
+                        setLocationInfo(geocoder.result.properties);
+                    }
                 }
             });
-            mapRef.current.addControl(customGeocoder, 'top-left');
+            // mapRef.current.addControl(customGeocoder, 'top-left');
             mapRef.current.addControl(new IndoorControl());
             setIndoorMapEnabled(true);
+            // mapRef.current.addControl(
+            //     new MapboxDirections({
+            //         accessToken: mapboxgl.accessToken,
+            //         unit: 'metric',
+            //     }),
+            //     'top-left',
+            // );
+            document
+                .querySelector('.sidebar-content')
+                // .appendChild(customGeocoder.onAdd(mapRef.current));
+                .insertBefore(
+                    new MapboxDirections({
+                        accessToken: mapboxgl.accessToken,
+                        unit: 'metric',
+                    }).onAdd(mapRef.current),
+                    document.querySelector('.sidebar-content').firstChild,
+                );
+            document
+                .querySelector('.sidebar-content')
+                // .appendChild(customGeocoder.onAdd(mapRef.current));
+                .insertBefore(
+                    customGeocoder.onAdd(mapRef.current),
+                    document.querySelector('.sidebar-content').firstChild,
+                );
         }
     };
 
     const flyToLocation = center => {
         mapRef.current.flyTo({ center, zoom: 22, duration: 2000 });
+    };
+
+    const hardcodedLocationInfo = {
+        name: 'Main Library',
+        campus: 'North Campus',
+        area: 'Academic Zone',
+        level: '2nd Floor',
+        description:
+            'The main library houses over 1 million books and provides quiet study areas for students.',
+        amenities: [
+            'Silent Study Rooms',
+            'Group Study Areas',
+            'Computer Lab',
+            'Printing Services',
+            'Cafeteria',
+        ],
+    };
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
     };
 
     return (
@@ -188,7 +259,7 @@ const Mapbox = () => {
                 {indoorMapEnabled ? 'Disable Indoor Map' : 'Enable Indoor Map'}
             </button>
 
-            <div className={styles.mapContainer}>
+            <div id="main-container" className={styles.mapContainer}>
                 <div
                     className="map-container"
                     ref={mapContainerRef}
@@ -228,6 +299,11 @@ const Mapbox = () => {
                     >
                         Toggle Menu
                     </button> */}
+                    <Sidebar
+                        locationInfo={locationInfo}
+                        isOpen={isSidebarOpen}
+                        toggleSidebar={toggleSidebar}
+                    />
                 </div>
             </div>
         </div>

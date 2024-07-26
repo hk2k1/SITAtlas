@@ -5,7 +5,7 @@ import { checkRole } from '../Users/checkRole';
 import { populateUser } from './hooks/populateUser';
 import { revalidatePost } from './hooks/revalidatePost';
 
-const Comments: CollectionConfig = {
+export const Comments: CollectionConfig = {
     slug: 'comments',
     admin: {
         useAsTitle: 'comment',
@@ -101,4 +101,4 @@ const Comments: CollectionConfig = {
     ],
 };
 
-export default Comments;
+// export default Comments;

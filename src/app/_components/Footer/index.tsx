@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { Footer } from '../../../payload/payload-types';
+import { Footer as FooterComponent } from '../../../payload/payload-types';
 import { fetchFooter, fetchGlobals } from '../../_api/fetchGlobals';
 import { ThemeSelector } from '../../_providers/Theme/ThemeSelector';
 import { Gutter } from '../Gutter';
@@ -10,7 +10,7 @@ import { CMSLink } from '../Link';
 import classes from './index.module.scss';
 
 export async function Footer() {
-    let footer: Footer | null = null;
+    let footer: FooterComponent | null = null;
 
     try {
         footer = await fetchFooter();
@@ -30,8 +30,8 @@ export async function Footer() {
                     <picture>
                         <img
                             className={classes.logo}
-                            alt="Payload Logo"
-                            src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/payload/src/admin/assets/images/payload-logo-light.svg"
+                            alt="SITAtlas Logo"
+                            src="https://raw.githubusercontent.com/hk2k1/portfolio/master/public/SITAtlas_named_color.svg"
                         />
                     </picture>
                 </Link>

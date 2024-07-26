@@ -19,7 +19,7 @@ const AREA_TO_DOWNLOAD = 1000; // in terms of distance from user
 class MapServerHandler {
     serverUrl: string;
 
-    map: MapGLWithIndoor;
+    map: MapGLWithIndoor | any;
     remoteMapsDownloaded: RemoteMap[];
     downloadedBounds: BBox | null;
 
@@ -33,17 +33,17 @@ class MapServerHandler {
         indoorMapOptions?: IndoorMapOptions,
     ) {
         this.serverUrl = serverUrl;
-        this.map = map;
+        this.map = map as MapGLWithIndoor;
         this.indoorMapOptions = indoorMapOptions;
         this.remoteMapsDownloaded = [];
         this.downloadedBounds = null;
 
-        if (map.loaded()) {
+        if (this.map.loaded()) {
             this.loadMapsIfNecessary();
         } else {
-            map.on('load', () => this.loadMapsIfNecessary());
+            this.map.on('load', () => this.loadMapsIfNecessary());
         }
-        map.on('move', () => this.loadMapsIfNecessary());
+        this.map.on('move', () => this.loadMapsIfNecessary());
     }
 
     private loadMapsIfNecessary = async (): Promise<void> => {
