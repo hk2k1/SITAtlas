@@ -19,7 +19,7 @@ import { addIndoorTo, IndoorControl, IndoorMap, MapboxMapWithIndoor } from '../.
 import '../../_css/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css';
-import '../../_css/Sidebar.scss';
+import '../../_css/sidebar.scss';
 
 // Custom CSS
 import styles from '../../_css/Mapbox.module.scss';
