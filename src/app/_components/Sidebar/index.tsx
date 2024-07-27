@@ -5,7 +5,12 @@ import { ChevronLeft, ChevronRight, Italic } from 'lucide-react';
 const Sidebar = ({ locationInfo, isOpen, toggleSidebar }) => {
     return (
         <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-            <button className="toggle-btn" onClick={toggleSidebar}>
+            <button
+                id="togglebtn"
+                aria-label="toggle button"
+                className="toggle-btn"
+                onClick={toggleSidebar}
+            >
                 {isOpen ? <ChevronLeft size={24} /> : <ChevronRight size={24} />}
             </button>
             <div className="sidebar-content">
@@ -29,7 +34,7 @@ const Sidebar = ({ locationInfo, isOpen, toggleSidebar }) => {
                 <div>capacity: {locationInfo?.capacity}</div>
                 <div>booking: {locationInfo?.booking}</div>
                 <div>opening hours: {locationInfo?.opening_hours}</div>
-                <h3>Amenities</h3>
+                <h4>Amenities</h4>
                 <ul>
                     {locationInfo?.amenities.map((amenity, index) => (
                         <li key={index}>{amenity}</li>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 
 import { AdminBar } from './_components/AdminBar';
+import Chatbot from './_components/Chatbot';
 import { Footer } from './_components/Footer';
 import { Header } from './_components/Header';
 import { Providers } from './_providers';
@@ -17,7 +18,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <InitTheme />
                 <meta
                     name="viewport"
-                    content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+                    content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=5"
                 ></meta>
                 <link rel="icon" href="/favicon.ico" sizes="32x32" />
                 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -35,10 +36,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </head>
             <body>
                 <Providers>
+                    <script
+                        type="module"
+                        defer
+                        src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/spiral.js"
+                    ></script>
                     <AdminBar />
                     {/* @ts-expect-error */}
                     <Header />
                     {children}
+                    <Chatbot />
                     {/* @ts-expect-error */}
                     <Footer />
                 </Providers>
