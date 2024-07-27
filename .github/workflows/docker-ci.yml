@@ -38,6 +38,8 @@ jobs:
     #         #         echo PAYLOAD_PUBLIC_SERVER_URL=${{ vars.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
     #         #         echo PORT=${{ vars.PORT }} >> .env
     #         #         echo REVALIDATION_KEY=${{ vars.REVALIDATION_KEY }} >> .env
+    #         #         echo OPENAI_API_KEY=${{ vars.OPENAI_API_KEY }} >> .env
+    #         #         echo ASSISTANT_API_KEY=${{ vars.ASSISTANT_API_KEY }} >> .env
     #         #         cat .env
     #         - 
     #             name: Downcase GITHUB_REPOSITORY
@@ -86,6 +88,8 @@ jobs:
     #                     "PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }}"
     #                     "PORT=${{ secrets.PORT }}"
     #                     "REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }}"
+    #                     "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}"
+    #                     "ASSISTANT_API_KEY=${{ secrets.ASSISTANT_API_KEY }}"
 
     # test-unit:
     #     name: Unit Tests in Docker
@@ -160,6 +164,8 @@ jobs:
     #                 echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
     #                 echo MONGODB_ADMINUSERNAME=${{secrets.MONGODB_ADMINUSERNAME}} >> .env
     #                 echo MONGODB_ADMINPASSWORD=${{secrets.MONGODB_ADMINPASSWORD}} >> .env
+    #                 echo OPENAI_API_KEY=${{ vars.OPENAI_API_KEY }} >> .env
+    #                 echo ASSISTANT_API_KEY=${{ vars.ASSISTANT_API_KEY }} >> .env
     #                 cat .env
     #                 docker compose --env-file .env -f docker-compose.test.yml up --exit-code-from sut
                     
@@ -178,7 +184,8 @@ jobs:
     #             #     echo PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }} >> .env
     #             #     echo PORT=${{ secrets.PORT }} >> .env
     #             #     echo REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }} >> .env
-
+    #             #     echo OPENAI_API_KEY=${{ vars.OPENAI_API_KEY }} >> .env
+    #             #     echo ASSISTANT_API_KEY=${{ vars.ASSISTANT_API_KEY }} >> .env
     #             #     cat .env
     #             #     docker compose --env-file .env -f docker-compose.test.yml up
 
@@ -313,6 +320,8 @@ jobs:
                         "PAYLOAD_PUBLIC_SERVER_URL=${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }}"
                         "PORT=${{ secrets.PORT }}"
                         "REVALIDATION_KEY=${{ secrets.REVALIDATION_KEY }}"
+                        "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}"
+                        "ASSISTANT_API_KEY=${{ secrets.ASSISTANT_API_KEY }}"
             - 
                 name: Find Comment for image tags
                 uses: peter-evans/find-comment@v2
