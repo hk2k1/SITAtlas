@@ -9,3 +9,7 @@ node_modules
 .vscode
 data
 yarn.lock
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
