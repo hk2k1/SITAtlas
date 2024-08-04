@@ -198,8 +198,10 @@ export async function POST(req: Request): Promise<NextResponse> {
 
         // Step 7: Retrieve the assistant's messages
         const messages = await openai.beta.threads.messages.list(thread.id);
+        console.log('Messages:', messages.data);
         // Get the last assistant message
-        const lastAssistantMessage = messages.data.filter(msg => msg.role === 'assistant').pop();
+        const lastAssistantMessage = messages.data.filter(msg => msg.role === 'assistant')[0];
+        console.log('Last assistant message:', lastAssistantMessage);
 
         // Send the response
         return NextResponse.json({
