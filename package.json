@@ -27,7 +27,7 @@
   "dependencies": {
     "@mapbox/mapbox-gl-directions": "^4.3.1",
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
-    "@payloadcms/bundler-webpack": "^1.0.6",
+    "@payloadcms/bundler-webpack": "^1.0.7",
     "@payloadcms/db-mongodb": "^1.0.0",
     "@payloadcms/plugin-cloud": "^2.0.0",
     "@payloadcms/plugin-nested-docs": "^1.0.8",
