@@ -1,16 +1,14 @@
 'use client';
-import React from 'react';
 import {
+    Building,
+    Calendar,
     ChevronLeft,
     ChevronRight,
-    MapPin,
-    Building,
-    Layers,
-    Info,
-    Mail,
-    Users,
-    Calendar,
     Clock,
+    Layers,
+    Mail,
+    MapPin,
+    Users,
 } from 'lucide-react';
 
 const Sidebar = ({ locationInfo, isOpen, toggleSidebar }) => {
