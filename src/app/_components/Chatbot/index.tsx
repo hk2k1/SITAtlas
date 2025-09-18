@@ -50,7 +50,7 @@ const Chatbot: React.FC = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message: input }),
+                body: JSON.stringify({ message: input, threadId }),
             });
             // console.log('Input data', input, threadId);
             if (!response.ok) {
